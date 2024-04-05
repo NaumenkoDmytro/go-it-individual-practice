@@ -35,7 +35,7 @@ print(largest_number_function([1,1111,2443,45,65,76,67]))
 def min_number_in_list(numbers: list):
     for_smallest_number = numbers[0]
     for num in numbers:
-            if num < for_smallest_number: # if large number needed change the < sign to > 
+            if num < for_smallest_number: # if large number needed change the < sign to
                 for_smallest_number = num
     return for_smallest_number
 
