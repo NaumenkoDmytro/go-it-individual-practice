@@ -131,3 +131,56 @@ def number_of_groups(n, k):
     
     
 # Done
+# Task: Write a Python program to find the maximum value in a list.
+def finding_max_in_list(items:list) -> int:
+    max_number = 0
+    for item in items:
+        if item > max_number:
+            max_number = item
+    return max_number
+
+
+print(finding_max_in_list([1,2,3,4,5,6,7,1000]))
+
+# Done
+
+#Task: Write a Python program to find the average length of strings in a given list of strings.
+def average_rage_of_string(words:list) -> float: #assign the types of arguments and expected reults
+    total_string_lenght = 0 # assign the variable to count the total lenght of string in list
+    for elem in words:
+        total_string_lenght += len(elem) #counting the total lenght of strings
+    
+    return total_string_lenght / len(words) # return the average of all elemnts in list of strings
+
+
+print(average_rage_of_string(['radar', 'level', 'python', 'noon', 'pop']))
+# Done
+
+#Task: Write a Python program to find the longest word in a given list of words.
+
+def the_longest_word(words:list) -> str: #define the types of data that function have to accept
+    longest_word = '' #create an empty str to assing value from loop
+    for elem in words:
+        if len(elem) > len(longest_word): #check if lenght of the previous elemt  bigger then our empty string (here I had to be carful with data type for check "int" should check with "int")
+            longest_word = elem #if True assign str value to our empty string
+    return longest_word #return the biggest string form the list
+
+print(the_longest_word(['radar', 'level', 'python', 'noon', 'pop','jfkdskhjgfjkdfgjgfdjgfdklfgdlkgfdlkgfdklgfdkl']))
+
+# Done
+
+#Task: Write a Python program to find the longest word in a given list of words. (I added a check for other data types in this function, so now it works only with strings :) )
+
+def the_longest_word(words:list) -> str:
+    longest_word = '' 
+    for elem in words:
+        if isinstance(elem, str):
+            if len(elem) > len(longest_word):
+                longest_word = elem
+        else:
+            print(f" {elem} is't a string, sorry but we work only with strings :)")
+    return longest_word
+
+print(the_longest_word([123456,'radar', 'level', 'python', 'noon', 'pop','jfkdskhjgfjkdfgjgfdjgfdklfgdlkgfdlkgfdklgfdkl']))
+
+# Done
