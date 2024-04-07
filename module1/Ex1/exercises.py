@@ -1,13 +1,18 @@
-#Task: Write a Python program to find the longest word in a given list of words.
+#Task: Write the Python program to remove duplicates from a list to also preserve the original order of elements in the list.
 
-def the_longest_word(words:list) -> str:
-    longest_word = '' 
-    for elem in words:
-        if isinstance(elem, str):
-            if len(elem) > len(longest_word):
-                longest_word = elem
+def remove_dublicates(elements:list) -> list:
+    dup_items = set() #here we create a list for duplicates
+    new_list = [] #here we create an empty list to store sorted data
+    
+
+    for elem in elements:
+        if elem not in dup_items:
+            new_list.append(elem)
+            dup_items.add(elem)
         else:
-            print(f" {elem} is't a string, sorry but we work only with strings :)")
-    return longest_word
+            new_list.append(" ")
+    return new_list
 
-print(the_longest_word([123456,'radar', 'level', 'python', 'noon', 'pop','jfkdskhjgfjkdfgjgfdjgfdklfgdlkgfdlkgfdklgfdkl']))
+print(remove_dublicates([10, 20, 30, 20, 10, 50, 60, 40, 80, 50, 40]))
+
+

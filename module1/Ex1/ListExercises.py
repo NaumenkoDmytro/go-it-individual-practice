@@ -184,3 +184,76 @@ def the_longest_word(words:list) -> str:
 print(the_longest_word([123456,'radar', 'level', 'python', 'noon', 'pop','jfkdskhjgfjkdfgjgfdjgfdklfgdlkgfdlkgfdklgfdkl']))
 
 # Done
+
+#Task: Write a Python program to find the median of a given list of numbers.
+
+def find_median(numbers):
+    numbers.sort()  # Sort the list of numbers
+    n = len(numbers)
+    if n % 2 == 1:
+        # If the length of the list is odd
+        return numbers[n // 2]
+    else:
+        # If the length of the list is even
+        mid1 = n // 2
+        mid2 = mid1 - 1
+        return (numbers[mid1] + numbers[mid2]) / 2
+
+# Example usage
+my_numbers = [5, 3, 1, 4, 2]
+print("Median of the list:", find_median(my_numbers))
+
+#analyzed
+
+# Define a list 'a' with some duplicate and unique elements
+a = [10, 20, 30, 20, 10, 50, 60, 40, 80, 50, 40]
+
+# Create an empty set to store duplicate items and an empty list for unique items
+dup_items = set()
+uniq_items = []
+
+# Iterate through each element 'x' in the list 'a'
+for x in a:
+    # Check if the current element 'x' is not already in the set 'dup_items' (it's a duplicate check)
+    if x not in dup_items:
+        # If 'x' is not a duplicate, add it to the 'uniq_items' list
+        uniq_items.append(x)
+        # Add 'x' to the 'dup_items' set to mark it as a seen item
+        dup_items.add(x)
+
+# Print the set 'dup_items' which now contains the unique elements from the original list 'a'
+print(dup_items) 
+
+#analyzed
+
+# Task: Implement a function that checks if two lists have the same elements in the same order and return True if they do, otherwise return False.
+a = [1,2,3]
+def same_elemts_check(elements_set_first: list, elements_set_second: list ) -> bool:
+    if elements_set_first is elements_set_second:
+        return True
+    else:
+        return False
+
+print(same_elemts_check(a, a))
+print(same_elemts_check(a, [1,2,3]))
+
+#Done
+
+#Task: Write the Python program to remove duplicates from a list to also preserve the original order of elements in the list.
+
+def remove_dublicates(elements:list) -> list:
+    dup_items = set() #here we create a set for duplicates
+    new_list = [] #here we create an empty list to store sorted data
+    
+
+    for elem in elements:
+        if elem not in dup_items:
+            new_list.append(elem)
+            dup_items.add(elem)
+        else:
+            new_list.append(" ")
+    return new_list
+
+print(remove_dublicates([10, 20, 30, 20, 10, 50, 60, 40, 80, 50, 40]))
+
+#Done
