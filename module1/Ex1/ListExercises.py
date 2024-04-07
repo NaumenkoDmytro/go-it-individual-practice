@@ -119,16 +119,15 @@ Cnk = n! / ((n - k)! · k!)
 3.Обчислення здійснюється шляхом виклику функції factorial для отримання факторіалів n, n - k та k.
 4.Поверніть результат цього обчислення.
 '''
-def factorial(n):
-    if n < 2:
+def factorial(n): #функція яка виконує обчислення факторіалу
+    if n < 2: # умова зупинки виклику функції
         return 1
     else:
-        return n * factorial(n - 1)
+        return n * factorial(n - 1) # обчислення факторілу
 
 
 def number_of_groups(n, k):
-        return factorial(n) // ((factorial(n-k)) * factorial(k))
+        return factorial(n) // ((factorial(n-k)) * factorial(k)) #використання рекурсивної функції факторіалу
     
     
-    
-    
+# Done
