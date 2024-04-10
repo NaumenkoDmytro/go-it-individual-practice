@@ -1,27 +1,23 @@
-import random
-import time
+'''
+There was a test in your class and you passed it. Congratulations!
+But you're an ambitious person. You want to know if you're better than the average student in your class.
 
-start_time = time.perf_counter()
+You receive an array with your peers' test scores. Now calculate the average and compare your score!
 
-def get_numbers_ticket(min, max, quantity):
-    if min < 1 or max > 1000 or max < min or quantity <1 or quantity > 1000 or quantity > max-min+1:
-        print(f"Out of range")
-        return list()
-    # else:
-    #     ticket_list = range(min, max+1)
-    #     the_main_list = sorted(random.sample(ticket_list, quantity))
-    #     #final_list = sorted(the_main_list)   
-    # return the_main_list
-    # Nice one option :)
-    #return sorted(random.sample(range(min, max+1), quantity))
-    
+Return True if you're better, else False!
 
-lottery_numbers = get_numbers_ticket(1, 49, 6)
-print("Ваші лотерейні числа:", lottery_numbers)
-        
-end_time = time.perf_counter()
+Note:
+Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!
+'''
 
-execution_time = end_time - start_time
-print(f"Час виконання: {execution_time} секунд")
-    
-#0.0001981999957934022 секунд > Час виконання: 0.00016469997353851795 секунд
+
+
+
+def better_than_average(class_points, your_points):
+    #all_points = class_points.append(your_points) # I have no idea why that passed the test
+    if (sum(class_points ) + your_points) /(len(class_points) + 1) > your_points:
+        return False
+    else:
+        return True
+
+print(better_than_average([2, 3], 5))
