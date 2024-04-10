@@ -1,15 +1,27 @@
-from collections import defaultdict #we innitializing this to get an empty dictionaries wil already assign values for "keys" so we don't need to create a key evry time to assign a values into the dictionary
-def groupAnagrams(strs: list[str]) -> list[str]:
-    anagram_map = defaultdict(list) # we created a dictionary by using the defauldict to add new keys with values without creating a key each time for new values and the type for value will be list (by default)
-    result = [] #an empty array that we will return as a result of function
-    
-    for s in strs: #here we are going trought each word in list
-        sorted_s = tuple(sorted(s)) #the main idea here is to sort all elements in word in alphabtic oreder and assign it's copy as a key into our dictionary(anagram_map), we convert it into the tuple because list(mutable) data type can't be the key (always have to be immutable) in dictionaries
-        anagram_map[sorted_s].append(s) #here we added they key to our (anagram map[sorted.s]), and add the word from the (strs) if it's match this key
-    
-    for values in anagram_map.values(): #will give us the list of the values
-        result.append(values) #and for each of this values we are going to append them into our values list and return it
+import random
+import time
 
-    return result
+start_time = time.perf_counter()
 
-print(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+def get_numbers_ticket(min, max, quantity):
+    if min < 1 or max > 1000 or max < min or quantity <1 or quantity > 1000 or quantity > max-min+1:
+        print(f"Out of range")
+        return list()
+    # else:
+    #     ticket_list = range(min, max+1)
+    #     the_main_list = sorted(random.sample(ticket_list, quantity))
+    #     #final_list = sorted(the_main_list)   
+    # return the_main_list
+    # Nice one option :)
+    #return sorted(random.sample(range(min, max+1), quantity))
+    
+
+lottery_numbers = get_numbers_ticket(1, 49, 6)
+print("Ваші лотерейні числа:", lottery_numbers)
+        
+end_time = time.perf_counter()
+
+execution_time = end_time - start_time
+print(f"Час виконання: {execution_time} секунд")
+    
+#0.0001981999957934022 секунд > Час виконання: 0.00016469997353851795 секунд

@@ -276,3 +276,153 @@ def groupAnagrams(strs: list[str]) -> list[str]:
 print(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
 
 #analyzed, done with youtube.
+
+
+#Taks: Write a Python program that takes a list of strings as input and prints each string along with its index in the list.
+
+name_list = ['Alice','Bob','Charle','David','Emily']
+for i, value in enumerate(name_list):
+    print(f'Index is = {i}, value of this index = {value}')
+
+#Done
+
+#Write a Python function called combine_lists that takes two lists of equal length as input and returns a list of tuples where each tuple contains elements from corresponding indices of the input lists.
+list1 = [1, 2, 3, 4]
+list2 = ['a', 'b', 'c', 'd']
+new_list = []
+if len(list1) == len(list2):
+    for number, value in zip(list1,list2):
+        appendr =(number,value) 
+        new_list.append(appendr)
+else:
+    print('lists have not equal lenght')
+
+print(new_list)
+
+#Done
+#Перевірка балансу для здійснення покупки
+balance = 0.7 + 0.6
+print(balance)
+if round(balance, 1) == 1.3: #always use round with float numbers
+    print('Enough')
+else:
+    print('Not Enough')
+print(round(balance, 1))
+
+#analyzed
+#У результаті виклику методу now() ми отримуємо об'єкт datetime, у якого є ряд корисних атрибутів:
+from datetime import datetime
+
+current_datetime = datetime.now()
+
+print(current_datetime.year) 
+print(current_datetime.month)
+print(current_datetime.day)
+print(current_datetime.hour)
+print(current_datetime.minute)
+print(current_datetime.second)
+print(current_datetime.microsecond)
+print(current_datetime.tzinfo)
+
+#analyzed
+# Datetime for homework
+from datetime import datetime
+
+# Створення двох об'єктів datetime
+datetime1 = datetime(2023, 3, 14, 12, 0)
+datetime2 = datetime(2023, 3, 15, 12, 0)
+
+# Порівняння дат
+print(datetime1 == datetime2)  # False, тому що дати не однакові
+print(datetime1 != datetime2)  # True, тому що дати різні
+print(datetime1 < datetime2)   # True, тому що datetime1 передує datetime2
+print(datetime1 > datetime2)   # False, тому що datetime1 не наступає за datetime2
+#analyzed
+
+#Якщо відняти від одного datetime об'єкту інший, то отримаємо timedelta об'єкт. Він відповідає за відрізок часу між двома датами.
+from datetime import datetime
+
+seventh_day_2019 = datetime(year=2019, month=1, day=7, hour=14)
+seventh_day_2020 = datetime(year=2020, month=1, day=7, hour=14)
+
+difference = seventh_day_2020 - seventh_day_2019
+print(difference)  # 365 days, 0:00:00
+print(difference.total_seconds())  # 31536000.0
+print(type(difference))
+print(type(seventh_day_2019))
+
+#analyzed
+
+#Вибір з вагами:
+import random
+
+colors = ['червоний', 'зелений', 'синій']
+weights = [10, 1, 1] #задає weight для списку
+chosen_color = random.choices(colors, weights, k=1)
+print(chosen_color) 
+
+#analyzed
+
+'''
+Вимоги до завдання:
+
+Параметри функції:
+min - мінімальне можливе число у наборі (не менше 1).
+max - максимальне можливе число у наборі (не більше 1000).
+quantity - кількість чисел, які потрібно вибрати (значення між min і max).
+Функція генерує вказану кількість унікальних чисел у заданому діапазоні.
+Функція повертає список випадково вибраних, відсортованих чисел. Числа в наборі не повинні повторюватися. Якщо параметри не відповідають заданим обмеженням, функція повертає пустий список.
+
+'''
+
+import random
+
+def get_numbers_ticket(min, max, quantity):
+    if min < 1 or max > 1000 or max < min or quantity <1 or quantity > 1000 or quantity > max-min+1:
+        print(f"Out of range")
+        return list()
+    else: 
+        ticket_list = set()
+        while len(ticket_list) < quantity:
+            ticket_list.add(random.randint(min, max))
+
+        print(f"The range of number starts from: {min} to {max}")
+        return ticket_list
+          
+        
+
+lottery_numbers = get_numbers_ticket(1, 100, 9)
+print("Ваші лотерейні числа:", lottery_numbers)
+print(len(lottery_numbers))
+
+#Done
+
+import random
+import time
+
+start_time = time.perf_counter()
+
+#Task #2
+def get_numbers_ticket(min, max, quantity):
+    if min < 1 or max > 1000 or max < min or quantity <1 or quantity > 1000 or quantity > max-min+1:
+        print(f"Out of range")
+        return list()
+    # else:
+    #     ticket_list = range(min, max+1)
+    #     the_main_list = sorted(random.sample(ticket_list, quantity))
+    #     #final_list = sorted(the_main_list)   
+    # return the_main_list
+    # Nice one option :)
+    #return sorted(random.sample(range(min, max+1), quantity))
+    
+
+lottery_numbers = get_numbers_ticket(1, 49, 6)
+print("Ваші лотерейні числа:", lottery_numbers)
+        
+end_time = time.perf_counter()
+
+execution_time = end_time - start_time
+print(f"Час виконання: {execution_time} секунд")
+    
+#0.0001981999957934022 секунд > Час виконання: 0.00016469997353851795 секунд
+#Done
