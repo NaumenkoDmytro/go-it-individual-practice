@@ -482,3 +482,48 @@ def better_than_average(class_points, your_points):
     return your_points > average
 
 print(better_than_average([2, 3], 5))
+
+# Autotest task 1
+from datetime import datetime
+
+
+def string_to_date(date_string):
+    datetime_object = datetime.strptime(date_string, '%Y.%m.%d')
+    return datetime_object
+    
+    
+def date_to_string(date):
+    string_object = date.strftime('%Y-%m-%d')
+    return string_object
+
+'''
+Якщо функція string_to_date отримала рядок 2020.01.01 то вона повинно повернути обєкт datatime: 2020-01-01. Поточний результат: : time data '2020.01.01' does not match format '%Y-%m-%d'
+
+'''
+
+print(string_to_date('2020.01.01'))
+
+'''
+Your task is to create a function that does four basic mathematical operations.
+
+The function should take three arguments - operation(string/char), value1(number), value2(number).
+The function should return result of numbers after applying the chosen operation.
+
+'''
+
+def basic_op(operator, value1, value2):
+    if operator == '+':
+        return value1 + value2
+    elif operator == '-':
+        return value1 - value2
+    elif operator == '*':
+        return value1 * value2
+    elif operator == '/':
+        return value1 / value2
+    
+#alternative
+
+def basic_op(operator, value1, value2):
+    return eval(str(value1) + operator + str(value2)) #eval functions here analyze the string and make the statement happen correct and return "int"
+    
+#Done

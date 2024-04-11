@@ -1,13 +1,11 @@
-def string_to_codes(string: str) -> dict:
-    # Ініціалізація словника для зберігання кодів
-    codes = {}  
-    # Перебір кожного символу в рядку
-    for ch in string:  
-        # Перевірка, чи символ вже є в словнику
-        if ch not in codes:
-            # Додавання пари символ-код в словник  
-            codes[ch] = ord(ch)  #Ключу CH присвоить value Ord(ch)
-    return codes
+'''
+Your task is to create a function that does four basic mathematical operations.
 
-result = string_to_codes("Hello world!")
-print(result)
+The function should take three arguments - operation(string/char), value1(number), value2(number).
+The function should return result of numbers after applying the chosen operation.
+
+'''
+def basic_op(operator, value1, value2):
+    return eval(str(value1) + operator + str(value2)) #eval functions here analyze the string and make the statement happen correct and return "int"
+
+print(type(basic_op('+', 4, 7)))
