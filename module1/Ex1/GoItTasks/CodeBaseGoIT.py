@@ -449,3 +449,44 @@ def date_to_string(date):
 
 print(string_to_date('2020.01.01'))
 
+#  У Харкові відкривають у бомбосховищі школу для молодших школярів.
+# Треба  обладнати три кімнати партами. Парта  - на дві людини.
+# Програмі подається на вхід три числа (трьома input)  - кількість учнів в кожному
+# класі. Програма має порахувати необхідну кількість парт загалом.
+
+
+
+# first_class_people = int(input('Введіть кількість учнів першому классі:'))
+# second_class_people = int(input('Введіть кількість учнів другому лассі:'))
+# third_class_people = int(input('Введіть кількість учнів третьому классі:'))
+
+
+# first_class_tables = first_class_people // 2 + first_class_people % 2
+# second_class_tables = second_class_people // 2 + second_class_people % 2 
+# third_class_tables = third_class_people // 2 + third_class_people % 2
+
+# print(f'В перший класс потрібно {first_class_tables} парт,В другий класс потрібно {second_class_tables} парт, В третій класс потрібно {third_class_tables} парт, всьго потрібно парт {first_class_tables + second_class_tables + third_class_tables }')
+
+# Зчитайте дійсне число. Виведіть його першу цифру після крапки.
+
+# number = ((89.12 % 1) * 10)
+# print(int(number))
+
+# Плюсами намалювати  такий трикутник
+#   +
+#   +++
+#   +++++
+#   +++++++
+#   +++++++++
+
+# for i in range(5):
+#     i = "+" * 2
+#     print(i)
+# i = 5
+# x = 1
+# while i > 0:
+#      print(' '*(i-1) + 'x'*(10-i*2+1))
+#      i -= 1
+
+#Done
+
