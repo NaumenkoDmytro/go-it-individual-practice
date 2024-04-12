@@ -427,61 +427,7 @@ print(f"Час виконання: {execution_time} секунд")
 #0.0001981999957934022 секунд > Час виконання: 0.00016469997353851795 секунд
 #Done
 
-'''
-Write a function that takes an array of words and smashes them together into a sentence and returns the sentence. You can ignore any need to sanitize words or add punctuation, 
-but you should add spaces between each word. Be careful, there shouldn't be a space at the beginning or the end of the sentence!
-'''
 
-def smash(words):
-    if len(words) > 0:
-        sentence =''
-        for word in words:
-            sentence += word
-            sentence += ' '
-    
-        sentence = sentence.rstrip(sentence[-1])
-
-        return sentence
-    else:
-        return ''
-
-
-print(smash(['hello', 'world', 'this', 'is', 'great']))
-
-#Alternative:
-
-def smash(words):
-    return " ".join(words)
-
-#Done
-
-'''
-There was a test in your class and you passed it. Congratulations!
-But you're an ambitious person. You want to know if you're better than the average student in your class.
-
-You receive an array with your peers' test scores. Now calculate the average and compare your score!
-
-Return True if you're better, else False!
-
-Note:
-Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!
-'''
-
-def better_than_average(class_points, your_points):
-    #all_points = class_points.append(your_points) # I have no idea why that passed the test
-    if (sum(class_points ) + your_points) /(len(class_points) + 1) > your_points:
-        return False
-    else:
-        return True
-
-
-#alternative
-
-def better_than_average(class_points, your_points):
-    average = (sum(class_points) + your_points) / (len(class_points) + 1)
-    return your_points > average
-
-print(better_than_average([2, 3], 5))
 
 # Autotest task 1
 from datetime import datetime
@@ -503,48 +449,3 @@ def date_to_string(date):
 
 print(string_to_date('2020.01.01'))
 
-'''
-Your task is to create a function that does four basic mathematical operations.
-
-The function should take three arguments - operation(string/char), value1(number), value2(number).
-The function should return result of numbers after applying the chosen operation.
-
-'''
-
-def basic_op(operator, value1, value2):
-    if operator == '+':
-        return value1 + value2
-    elif operator == '-':
-        return value1 - value2
-    elif operator == '*':
-        return value1 * value2
-    elif operator == '/':
-        return value1 / value2
-    
-#alternative
-
-def basic_op(operator, value1, value2):
-    return eval(str(value1) + operator + str(value2)) #eval functions here analyze the string and make the statement happen correct and return "int"
-    
-#Done
-
-'''
-Write a function which calculates the average of the numbers in a given list.
-
-Note: Empty arrays should return 0.
-
-'''
-def find_average(array):
-    if len(array) == 0:
-        return 0
-    else:
-        return sum(array) / len(array)
-        
-    
-# alternative with try and except:
-def find_average(array):
-    try:
-        return sum(array) / len(array)
-    except ZeroDivisionError:
-        return 0
-#done
