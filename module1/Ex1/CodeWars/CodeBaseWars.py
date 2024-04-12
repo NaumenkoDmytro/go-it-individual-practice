@@ -53,3 +53,64 @@ def better_than_average(class_points, your_points):
     return your_points > average
 
 print(better_than_average([2, 3], 5))
+
+#Write a function that takes an array of numbers and returns the sum of the numbers. The numbers can be negative or non-integer. If the array does not contain any numbers then you should return 0.
+
+def sum_array(a):
+    if len(a) == 0:
+        return 0
+    else:
+        sum = 0
+        for number in a:
+            sum += number
+    return sum
+# Alternative
+def sum_array(a):
+  return sum(a)
+
+#Done
+
+#Create a function that gives a personalized greeting. This function takes two parameters: name and owner.
+
+def greet(name, owner):
+    if name != owner:
+        return 'Hello guest'
+    else:
+        return 'Hello Boss'
+
+# Alternative
+
+def greet(name, owner):
+    return "Hello boss" if name == owner else "Hello guest"
+
+    
+#Done
+
+
+#Write a function to split a string and convert it into an array of words.
+
+def string_to_array(s):
+    return  s.split() if len(s) != 0 else ['']
+
+# Alternative
+
+def string_to_array(string):
+    return string.split(" ")
+
+#Done
+
+#Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+def invert(lst):
+    inverted_list = []
+    for number in lst:
+        if number > 0:
+            inverted_list.append(-abs(number))
+        elif number <= 0:
+            inverted_list.append(abs(number))
+    return inverted_list
+
+# Alternative
+def invert(lst):
+    return [-x for x in lst] # I have no idea why does it work
+
+#Done
