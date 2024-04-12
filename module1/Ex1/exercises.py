@@ -1,20 +1,9 @@
-'''
-Write a function which calculates the average of the numbers in a given list.
-
-Note: Empty arrays should return 0.
-
-'''
-def find_average(array):
-    if len(array) == 0:
-        return 0
-    else:
-        return sum(array) / len(array)
-        
-    
-# alternative with try and except:
-def find_average(array):
-    try:
-        return sum(array) / len(array)
-    except ZeroDivisionError:
-        return 0
-#done
+n = int(input().strip())
+if n >= 2 and n <= 5 and n % 2 == 0:
+    print('Not Weird')
+elif n => 6 and <=20 and n % 2 ==0:
+    print('Weird')
+elif n > 20 and n % 2 == 0:
+    print('Not Weird')
+elif n % 2 != 0:
+    print('Weird')
