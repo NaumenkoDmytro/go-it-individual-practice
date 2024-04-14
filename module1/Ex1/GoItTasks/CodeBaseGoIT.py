@@ -506,9 +506,38 @@ print(string_to_date('2020.01.01'))
 # word_counter_reversed = {}
 # for key, value in word_counter.items():
 #     word_counter_reversed[value] = word_counter_reversed.get(value, []) + [key]
-# # Вивели відсортований словник
+# # Вивели відсортований список
 # sorted_words = sorted(word_counter_reversed)
 # for word in sorted_words:
 #     print(word,word_counter_reversed[word])
 
 # #Done
+
+
+# Нам треба написати код, який обробляє URL пошукового запиту, щоб видобути параметри запиту та перетворити їх у формат, з яким легше працювати в Python.
+#Перший шаг ми відділяємо параметри запросу
+url_search = "<https://www.google.com/search?q=Cat+and+dog&ie=utf-8&oe=utf-8&aq=t>"
+_, query = url_search.split('?')
+print(query)
+# дадаємо словник з ключ значеннями і розділяємо його
+obj_query = {}
+for el in query.split('&'):
+    key, value = el.split('=')
+    obj_query.update({key: value.replace('+', ' ')})
+print(obj_query)
+
+#Analyzed
+# Autocheck #2 module 3
+from datetime import datetime
+
+
+def string_to_date(date_string):
+    return datetime.strptime(date_string, "%Y.%m.%d").date()
+
+
+def prepare_user_list(user_data):
+    for user in user_data:
+        user["birthday"] = string_to_date(user["birthday"])
+    return user_data
+
+#done #analyzed
