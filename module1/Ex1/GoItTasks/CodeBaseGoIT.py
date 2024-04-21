@@ -606,3 +606,11 @@ def get_upcoming_birthdays(users, days=7):
     return upcoming_birthdays
 
 #done # Saved for future projects
+
+
+#Всі файли потрібно навмистно приводити до UTF - 8 такі правила...
+# Відкриття текстового файлу з явним вказівкам UTF-8 кодування
+with open('example.txt', 'r', encoding='utf-8') as file:
+    content = file.read()
+    print(content)
+#Analyzed
