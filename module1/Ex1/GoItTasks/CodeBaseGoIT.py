@@ -728,3 +728,27 @@ assert bigger_price(
 # assert bigger_price(
 #     1, [{"name": "pen", "price": 5}, {"name": "whiteboard", "price": 170}]
 # ) == [{"name": "whiteboard", "price": 170}]
+
+'''
+Тобі дано словник із акціями і їх цінами. Функція повинна повертати найдорожчу акцію.
+
+Вхідні значення: Словник, у якому біржовий тікер (коротка назва) акції є ключем, а значенням є ціна цієї акції.
+
+Вихідні значення: Біржовий тікер як рядок.
+
+Приклади:
+
+assert best_stock({"CAC": 10.0, "ATX": 390.2, "WIG": 1.2}) == "ATX"
+assert best_stock({"CAC": 91.1, "ATX": 1.01, "TASI": 120.9}) == "TASI"
+
+Передумови: Ціни є унікальними, тобто не повторюються.
+'''
+
+
+# def best_stock(stock):
+#     print(sorted(stock, key=stock.get))
+#     return sorted(stock, key=stock.get)[-1]
+    
+
+# assert best_stock({"CAC": 10.0, "ATX": 390.2, "WIG": 1.2}) == "ATX"
+# assert best_stock({"CAC": 91.1, "ATX": 1.01, "TASI": 120.9}) == "TASI"
