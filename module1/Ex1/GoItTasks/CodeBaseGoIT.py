@@ -752,3 +752,40 @@ assert best_stock({"CAC": 91.1, "ATX": 1.01, "TASI": 120.9}) == "TASI"
 
 # assert best_stock({"CAC": 10.0, "ATX": 390.2, "WIG": 1.2}) == "ATX"
 # assert best_stock({"CAC": 91.1, "ATX": 1.01, "TASI": 120.9}) == "TASI"
+
+'''
+Coin Change Problem
+You are given an unlimited supply of coins of certain denominations and a total amount of money. 
+Write a function that returns the number of distinct ways you can make the total amount using these coins. 
+The order of coins does not matter.
+
+Input:
+
+coins: a list of integers representing the coin denominations available.
+amount: an integer representing the total amount of money.
+Output:
+
+Return the number of ways you can make the amount using any number of coins from coins.
+'''
+
+# def count_ways(coins, amount):
+#     cache = {}
+#     def recursive_count(current_amount):
+#         if current_amount in cache:
+#             return cache[current_amount]
+#         elif current_amount == 0:
+#             return 1
+#         elif current_amount < 0:
+#             return 0 
+    
+#         result = 0
+#         for coin in coins:
+#             result += recursive_count(current_amount - coin)
+
+#         cache[current_amount] = result
+#         return result
+#     return recursive_count(amount)
+    
+# coins = [1, 3, 4]
+# amount = 10
+# print(count_ways(coins, amount))
