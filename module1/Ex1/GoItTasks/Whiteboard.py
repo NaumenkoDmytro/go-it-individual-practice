@@ -1,22 +1,23 @@
-def count_ways(coins, amount):
-    cache = {}
-    def recursive_count(current_amount):
-        if current_amount in cache:
-            return cache[current_amount]
-        elif current_amount == 0:
-            return 1
-        elif current_amount < 0:
-            return 0 
-    
-        result = 0
-        for coin in coins:
-            result += recursive_count(current_amount - coin)
+class Pokemon:
+    def __init__(self, name, type, health):
+        self.name = name
+        self.type = type
+        self.health = health
 
-        cache[current_amount] = result
-        return result
-    return recursive_count(amount)
-    
-coins = [1, 3, 4]
-amount = 10
-print(count_ways(coins, amount))
+    def attack(self, other_pokemon):
+        print(f"{self.name} attacks {other_pokemon.name}!")
 
+    def dodge(self):
+        print(f"{self.name} dodged the attack!")
+
+    def evolve(self, new_form):
+        print(f"{self.name} is evolving into {new_form}!")
+        self.name = new_form
+
+# Створення об'єкта Pikachu
+pikachu = Pokemon("Pikachu", "Electric", 100)
+
+# Використання методів
+pikachu.attack(Pokemon("Charmander", "Fire", 100))
+pikachu.dodge()
+pikachu.evolve("Raichu")
