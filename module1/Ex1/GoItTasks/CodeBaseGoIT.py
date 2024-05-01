@@ -822,3 +822,82 @@ pikachu = Pokemon("Pikachu", "Electric", 100)
 pikachu.attack(Pokemon("Charmander", "Fire", 100))
 pikachu.dodge()
 pikachu.evolve("Raichu")
+
+
+'''
+Taks polindrome problem: context - is a word a polindrome?
+'''
+
+# def is_palindrome(word: str) -> bool:
+#     return word.lower() == word[::-1].lower()
+    
+
+
+# print(is_palindrome('radar'))  # True
+# print(is_palindrome('hello'))  # False
+# print(is_palindrome('level'))  # True
+# print(is_palindrome('Level'))  # True
+
+
+# # formated_word = word.lower()
+# #     new_word = ''
+# #     for i in formated_word[::-1]:
+# #         new_word += i
+# #     if new_word == formated_word:
+# #         return True
+# #     else:
+# #         return False
+
+
+'''
+Booking a hotel room: context : find out if the number is available for booking.
+'''
+
+# def calculate_guests(request: str) -> int or str:
+#     number_of_guests = ''
+#     for char in request:
+#         print(char)
+#         if char.isnumeric():
+#             number_of_guests += char
+#         elif len(number_of_guests) != 0:
+#             break 
+        
+#     print(number_of_guests)     
+#     return 'not a number' if number_of_guests == '' or number_of_guests == '0' else int(number_of_guests)
+ 
+
+
+# print(calculate_guests("I think 5 guests") == 5)
+# print(calculate_guests("Big company of 15 dudes") == 15)
+# print(calculate_guests("5") == 5)
+# print(calculate_guests("alone") == "not a number")
+# print(calculate_guests("0") == "not a number")
+# print(calculate_guests("Hello, 9.75 people") == 9)
+# print(calculate_guests("There will be 7 or 9 guys") == 7)
+# print(calculate_guests("hello cat walks on my keyboard ksadjfhskaj12.34kasdfhsjk") == 12)
+
+'''
+Taks 3: check if the string is in alphabtick oreder or not :)
+'''
+
+# def is_alphabet(symbols:str) -> bool:
+#     alphabet = "abcdefghijklmnopqrstuvwxyz"
+#     return  symbols.lower() in alphabet
+
+
+
+# print(is_alphabet("abc")) #isTrue
+# print(is_alphabet("aBc")) #isTrue
+# print(is_alphabet("abd")) #isFalse - після b йде c
+# print(is_alphabet("a")) #isTrue
+# print(is_alphabet("abcdefghjiklmnopqrstuvwxyz")) #isFalse - #j йде після i
+# print(is_alphabet("tuvwxyz")) #isTrue
+# print(is_alphabet("XYZ")) #isTrue
+
+
+ # formated_str = symbols.lower()
+    # alphabet = "abcdefghijklmnopqrstuvwxyz"
+    # if formated_str in alphabet:
+    #     return True
+    # else:
+    #     return False
