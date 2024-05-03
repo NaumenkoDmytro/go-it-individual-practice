@@ -963,3 +963,68 @@ def CodelandUsernameValidation(strParam):
 
 # keep this function call here 
 print(CodelandUsernameValidation("u__hello_world123"))
+
+'''
+Dict task: 1
+'''
+
+def user_update(user_data:list) -> None:
+    for user in user_data:
+        user['full_name'] = user['first_name'] +' '+ user['last_name']
+        print(user['full_name'])
+    
+
+
+
+users = [
+  {
+    "first_name": "Jack",
+    "last_name": "Holy",
+  },
+  {
+    "first_name": "Mike",
+    "last_name": "Adams",
+  },
+]
+
+print(user_update(users))
+print(users)
+
+'''
+Dict task: 2 
+'''
+
+def user_update(user_data:list) -> None:
+    for user in user_data:
+        user['first_name'] = user['full_name'].split(' ')[0]
+        
+
+users = [
+        { 'last_name': 'Holy', 'full_name': 'Jack Holy'}, 
+         { 'last_name': 'Adams', 'full_name': 'Mike Adams'},
+         { 'last_name': 'Adams', 'full_name': 'Mikessss Adams'}
+        ]
+
+print(user_update(users))
+print(users)
+
+'''
+Dict task: 3 
+'''
+
+def user_update(user_data:list) -> None:
+    for user in user_data:
+        if user["status"] == "disabled":
+            user.pop("country")
+
+        
+
+users = [
+  { "name": "Emma", "status": "active", "country": "Ukraine" },
+  { "name": "Avram", "status": "disabled", "country": "Poland" },
+  { "name": "Avram", "status": "active", "country": "Poland" },
+  { "name": "Avram", "status": "disabled", "country": "Poland" },
+]
+
+print(user_update(users))
+print(users)
