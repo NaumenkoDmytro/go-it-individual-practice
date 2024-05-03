@@ -1028,3 +1028,41 @@ users = [
 
 print(user_update(users))
 print(users)
+
+'''
+Dict task: 4 
+'''
+
+def robot_version_check(robot_data:list, version:int) -> None:
+    index_list =[i for i, item in enumerate(robot_data) if item["core_version"] < version]
+    # for i, item in enumerate(robot_data):
+    #     if item["core_version"] < version:
+    #         index_list.append(i)
+    return index_list
+            
+
+robots = [
+  { "core_version": 9 },
+  { "core_version": 13 },
+  { "core_version": 16 },
+  { "core_version": 9 },
+  { "core_version": 14 },
+]
+
+print(robot_version_check(robots, 10))  #[0, 3])
+print(robot_version_check(robots, 14))  #[0, 1, 3])
+print(robot_version_check(robots, 8))  #[])
+print(robot_version_check(robots, 18))  #[0, 1, 2, 3, 4])
+
+'''
+Dict task with lambda: 5 
+'''
+
+def calculator(number1:int , number2:int , operator:str):
+    operations = {'+': lambda x, y: x+y,
+                  '-': lambda x, y: x-y,
+                  '*': lambda x, y: x*y,
+                  '/': lambda x, y: x/y}
+    return operations[operator](number1,number2)
+
+print(calculator(1,2,'+'))

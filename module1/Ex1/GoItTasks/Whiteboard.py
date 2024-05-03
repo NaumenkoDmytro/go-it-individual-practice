@@ -1,20 +1,16 @@
 '''
-Dict task: 3 
+Dict task with lambda: 6 
 '''
 
-def user_update(user_data:list) -> None:
-    for user in user_data:
-        if user["status"] == "disabled":
-            user.pop("country")
+def calculator(number1:int , number2:int , operator:str):
+    operations = {'+': lambda x, y: x+y,
+                  '-': lambda x, y: x-y,
+                  '*': lambda x, y: x*y,
+                  '/': lambda x, y: x/y}
+    return operations[operator](number1,number2)
+
+print(calculator(1,2,'+'))
 
         
 
-users = [
-  { "name": "Emma", "status": "active", "country": "Ukraine" },
-  { "name": "Avram", "status": "disabled", "country": "Poland" },
-  { "name": "Avram", "status": "active", "country": "Poland" },
-  { "name": "Avram", "status": "disabled", "country": "Poland" },
-]
 
-print(user_update(users))
-print(users)
