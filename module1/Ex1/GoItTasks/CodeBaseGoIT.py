@@ -1035,7 +1035,7 @@ Dict task: 4
 
 def robot_version_check(robot_data:list, version:int) -> None:
     index_list =[i for i, item in enumerate(robot_data) if item["core_version"] < version]
-    # for i, item in enumerate(robot_data):
+    # for i, item in enumerate(robot_data): #good function make a note
     #     if item["core_version"] < version:
     #         index_list.append(i)
     return index_list
@@ -1066,3 +1066,37 @@ def calculator(number1:int , number2:int , operator:str):
     return operations[operator](number1,number2)
 
 print(calculator(1,2,'+'))
+
+'''
+Dict task with tuple: 6 
+'''
+
+def create_dino_archive(name:list, lenght:list, diets:list):
+    dino_list = zip(name, lenght, diets) #remember zip always return tuple!
+    return list(dino_list)
+    
+
+dino_name = ["Tyrannosaurus", "Velociraptor", "Triceratops", "Saltopus"]
+dino_lenghts = [12, 2, 9, 1]
+dino_diets = ["carnivorous", "carnivorous", "herbivorous", "herbivorous"]
+
+print(create_dino_archive(dino_name, dino_lenghts, dino_diets)) 
+# [("Tyrannosaurus", 12, "carnivorous"), ("Velociraptor", 2, "carnivorous"), ("Triceratops", 9, "herbivorous"), ("Saltopus", 1, "herbivorous")]
+
+
+'''
+Dict comp task with tuple: 6 
+'''
+
+def norm_data(data:list):
+    formated_data = {user[0]:{'name':user[1],'login':user[2],'Password':user[3] } for user in data }
+    print(formated_data)
+
+users = [
+    (12, 'Maxim', 'maxim@example.com', 'UBg11eub42hge'),
+    (13, 'Dmitro', 'dmitro@example.com', 'sdTioT36723fw'),
+    (14, 'Roman', 'roman@example.com', 'hbFEkj34NggE2'),
+    (15, 'Ivan', 'ivan@example.com', 'sdTioT36723fw'),
+]
+
+print(norm_data(users))
