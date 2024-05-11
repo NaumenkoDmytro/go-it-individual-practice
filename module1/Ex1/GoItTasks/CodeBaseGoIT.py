@@ -1124,7 +1124,14 @@ class Warrior:
     
     @property
     def is_alive(self):
-        return self.health > 0 
+        return self.health > 0
+
+
+    def damage(self, attack):
+        self.health -= attack
+
+    def hit(self, unit):
+        unit.damage(self.attack)
 
 
 class Knight(Warrior):
@@ -1132,6 +1139,17 @@ class Knight(Warrior):
         super().__init__(health=health, attack=attack)
 
 
+class Defender(Warrior):
+    def __init__(self, health=60, attack=3, defence = 2) -> None:
+        super().__init__(health=health, attack=attack)
+        self.defence = defence
+
+    
+    def damage(self, attack):
+        if attack > self.defence:
+            self.health -= attack - self.defence
+
+    
 class Army(UserList):
     def add_units(self, warriors_type:Warrior, amount:int):
         for _ in range(amount):
@@ -1154,17 +1172,12 @@ class Battle:
         return first_army.is_exist
 
 
-
-        
-
-
-
-
 def fight(fighter1:Warrior, fighter2:Warrior):
     while fighter1.is_alive and fighter2.is_alive:
-        fighter2.health -= fighter1.attack
+        fighter1.hit(fighter2)
+        # fighter2.health -= fighter1.attack
         if fighter2.is_alive:
-            fighter1.health -= fighter2.attack
+            fighter2.hit(fighter1)
     return fighter1.is_alive
 
 
@@ -1178,6 +1191,10 @@ if __name__ == '__main__':
     carl = Knight()
     dave = Warrior()
     mark = Warrior()
+    bob = Defender()
+    mike = Knight()
+    rog = Warrior()
+    lancelot = Defender()
 
     assert fight(chuck, bruce) == True
     assert fight(dave, carl) == False
@@ -1187,28 +1204,102 @@ if __name__ == '__main__':
     assert dave.is_alive == False
     assert fight(carl, mark) == False
     assert carl.is_alive == False
-    army_1 = Army()
-    army_2 = Army()
-    army_1.add_units(Warrior, 20)
-    army_2.add_units(Warrior, 21)
-    battle = Battle()
-    battle.fight(army_1, army_2)
-#battle tests
+    assert fight(bob, mike) == False
+    assert fight(lancelot, rog) == True
+
+    #battle tests
     my_army = Army()
-    my_army.add_units(Knight, 3)
+    my_army.add_units(Defender, 1)
     
     enemy_army = Army()
-    enemy_army.add_units(Warrior, 3)
+    enemy_army.add_units(Warrior, 2)
 
     army_3 = Army()
-    army_3.add_units(Warrior, 20)
-    army_3.add_units(Knight, 5)
-    
+    army_3.add_units(Warrior, 1)
+    army_3.add_units(Defender, 1)
+
     army_4 = Army()
-    army_4.add_units(Warrior, 30)
+    army_4.add_units(Warrior, 2)
 
     battle = Battle()
 
-    assert battle.fight(my_army, enemy_army) == True
-    assert battle.fight(army_3, army_4) == False
+    assert battle.fight(my_army, enemy_army) == False
+    assert battle.fight(army_3, army_4) == True
     print("Coding complete? Let's try tests!")
+'''
+Дано текст і потрібно знайти його перше слово.
+
+Даний текст містить англійські букви та пробіли.
+На початку та у кінці пробілів немає.
+'''
+
+def first_word(text: str) -> str:
+    word =''
+    for leter in text:
+        if leter == ' ':
+            break
+        else:
+            word += leter
+
+    return word
+
+
+#alterative that is faster because of method using
+def first_word_2(text):
+    index = text.find(" ")
+    return text[:index] if index != -1 else text
+
+print("Example:")
+print(first_word("Hello world"))
+
+# These "asserts" are used for self-checking
+assert first_word("Hello world") == "Hello"
+assert first_word("a word") == "a"
+assert first_word("greeting from CheckiO Planet") == "greeting"
+assert first_word("hi") == "hi"
+
+print("The mission is done! Click 'Check Solution' to earn rewards!")
+
+
+'''
+Ця функція повинна приймати на вхід рядок і повертати кількість голосних (a, e, i, o, u) у рядку. Функція повинна бути нечутливою до регістру.
+'''
+def count_vowels(text: str) -> int:
+    counter = 0
+    for char in text.lower():
+            counter += char in 'aeiou'  #in this case it returns True or False and Python can interpritate it as 1 (True) or 0 (False), so we can do math with that.
+    return counter
+
+
+print("Example:")
+print(count_vowels("Hello"))
+
+
+'''
+Ця функція повинна приймати на вхід рядок без розділових знаків і повертати найдовше слово у рядку. 
+Якщо у рядку є декілька слів однакової довжини, поверніть перше, яке з'явиться на екрані.
+'''
+
+
+#My option
+def longest_word(sentence: str) -> str:
+    formated_text = sentence.split(' ')
+    longest_word = ''
+    print(formated_text)
+    for word in formated_text:
+        if len(word) > len(longest_word):
+            longest_word = word
+    
+    return longest_word
+
+
+#alterantive "clear"
+def longest_word(sentence: str) -> str:
+    return max(sentence.split(), key=len, default='')
+
+
+#alterantive "creative"
+def longest_word(sentence: str) -> str:
+    sentence_sorted = sorted(sentence.split(' '), key=len, reverse=True)
+    return sentence_sorted[0]
+
