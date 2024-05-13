@@ -1378,4 +1378,77 @@ assert index_power([1, 2], 3) == -1
 
 print("The mission is done! Click 'Check Solution' to earn rewards!")
 
+'''
+Задано масив цілих чисел. Потрібно знайти суму елементів з парними індексами (0-й, 2-й, 4-й і т.д.), а потім перемножити цю суму і останній елемент вихідного масиву. 
+Не забудьте, що перший елемент масиву має індекс 0.
+'''
+
+def checkio(array: list[int]) -> int:
+    data = []
+    if len(array) == 0:
+        return 0
+    else:
+        for idx, elem in enumerate(array):
+            if idx % 2 == 0:
+                data.append(elem)
+        
+    return sum(data) * array[-1]
+
+#alternative
+# if len(array) == 0: return 0
+#     return sum(array[0::2]) * array[-1]
+
+
+
+print("Example:")
+print(checkio([0, 1, 2, 3, 4, 5]))
+
+# These "asserts" are used for self-checking
+assert checkio([0, 1, 2, 3, 4, 5]) == 30
+assert checkio([1, 3, 5]) == 30
+assert checkio([6]) == 36
+assert checkio([]) == 0
+
+# print("The mission is done! Click 'Check Solution' to earn rewards!")
+
+
+'''
+"Іноді, нулі нагадують дуже смачні пончики. І кожного разу, коли ми доїдаємо пончик, нам хочеться ще один, а потім ще один, а потім ще..."
+
+Тобі дано список з цілими числами. Твоя задача в цій місії - продублювати (..., 🍩, ... --> ..., 🍩, 🍩, ...) всі нулі (думай при цьому про пончики ;-P) 
+та повернути результат у вигляді ітеративного об'єкта. Поглянемо на приклад:
+'''
+
+def duplicate_zeros(donuts: list[int]) -> Iterable[int]:
+    i = len(donuts) - 1
+    while i >= 0:
+        if donuts[i] == 0:
+            donuts.insert(i + 1, 0)
+        i -= 1
+    return donuts
+
+
+print("Example:")
+print(list(duplicate_zeros([1, 0, 2, 3, 0, 4, 5, 0])))
+
+# These "asserts" are used for self-checking
+assert list(duplicate_zeros([1, 0, 2, 3, 0, 4, 5, 0])) == [
+    1,
+    0,
+    0,
+    2,
+    3,
+    0,
+    0,
+    4,
+    5,
+    0,
+    0,
+]
+assert list(duplicate_zeros([0, 0, 0, 0])) == [0, 0, 0, 0, 0, 0, 0, 0]
+assert list(duplicate_zeros([100, 10, 0, 101, 1000])) == [100, 10, 0, 0, 101, 1000]
+
+print("The mission is done! Click 'Check Solution' to earn rewards!")
+
+
 
