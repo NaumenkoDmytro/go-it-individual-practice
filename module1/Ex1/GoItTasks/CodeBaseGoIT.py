@@ -1303,3 +1303,79 @@ def longest_word(sentence: str) -> str:
     sentence_sorted = sorted(sentence.split(' '), key=len, reverse=True)
     return sentence_sorted[0]
 
+'''
+Ми маємо список логічних (булевих) значень. Давай перевіримо, чи більшість елементів є True.
+
+Деякі випадки, варті згадки: 1) порожній список повинен повертати False; 2) якщо однакова кількість True і False, функція повинна повертати False.
+'''
+
+def is_majority(items: list[bool]) -> bool:
+    counter = 0
+    for element in items:
+        if element:
+            counter +=1
+        else:
+            counter -= 1
+
+    if counter > 0:
+        return True
+    elif counter == 0:
+        return False
+    else:
+        return False
+
+
+#Alternative solutions
+
+# def is_majority(items: list) -> bool:
+#     return sum(items) > len(items) / 2
+
+
+'''
+Надано масив з позитивними числами і число N. 
+Ви повинні знайти N-ну ступінь елемента в масиві з індексом N. 
+Якщо N за межами масива, тодi повернути -1. 
+'''
+
+print("Example:")
+print(is_majority([True, True, False, True, False]))
+
+# These "asserts" are used for self-checking
+assert is_majority([True, True, False, True, False]) == True
+assert is_majority([True, True, False]) == True
+assert is_majority([True, True, False, False]) == False
+assert is_majority([True, True, False, False, False]) == False
+assert is_majority([False]) == False
+assert is_majority([True]) == True
+assert is_majority([]) == False
+
+print("The mission is done! Click 'Check Solution' to earn rewards!")
+
+
+def index_power(ar: list[int], n: int) -> int:
+    if n > len(ar):
+        return -1
+    else:
+        for idx,elem in enumerate(ar):
+            if idx == n:
+                return elem ** n
+        
+#Alternative solution        
+def index_power(array, n):
+    try: return array[n] ** n
+    except IndexError: return -1           
+        
+
+
+print("Example:")
+print(index_power([1, 2, 3], 2))
+
+# These "asserts" are used for self-checking
+assert index_power([1, 2, 3, 4], 2) == 9
+assert index_power([1, 3, 10, 100], 3) == 1000000
+assert index_power([0, 1], 0) == 1
+assert index_power([1, 2], 3) == -1
+
+print("The mission is done! Click 'Check Solution' to earn rewards!")
+
+
