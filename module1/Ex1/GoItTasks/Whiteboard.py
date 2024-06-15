@@ -1,21 +1,17 @@
-def twoSum(numbers, target):
-    left, right = 0, len(numbers) - 1
-    while left < right:
-        print(f'is left index = {left}')
-        print(f'is right index = {right}')
-        curr_sum = numbers[left] + numbers[right] # here we add two numbers based on their idexes
-        if curr_sum == target:
-            return [left + 1, right + 1]
-        elif curr_sum < target:
-            left += 1 #we move index here
-        else:
-            right -= 1 # we move index here
+'''
+Є якісь данні, як приклад 'AAAAABBbCCCCC' повернтуи массив унікальних значень без повторювань - [A,B,b,C]
+'''
 
-print(twoSum([1,2,3,4,5,6,7], 100))
+def solution(data) -> list:
+    result = []
+    last_element = None
 
-# numbers = [1,2]
-# curr_sum = numbers[0] + numbers[1]
-# print(curr_sum)
+    for element in data:
+        if element != last_element:
+            result.append(element)
+            last_element = element
 
+    return result
 
-# to get the full control of index we need assing this to variable and work with it in case of math operations
+print(solution('AAAAABBbCCCCC'))
+print(solution([1,1,1,2,3,4,5,5,5]))
