@@ -1,17 +1,21 @@
-'''
-Є якісь данні, як приклад 'AAAAABBbCCCCC' повернтуи массив унікальних значень без повторювань - [A,B,b,C]
-'''
+class Person:
+    def __init__(self, name, age):
+        self.__name = name
+        self.__age = age
+    
+    def get_name(self):
+        return self.__name
+    
+    def get_age(self):
+        return self.__age
+    
+    def set_age(self, age):
+        if age > 0:
+            self.__age = age
 
-def solution(data) -> list:
-    result = []
-    last_element = None
-
-    for element in data:
-        if element != last_element:
-            result.append(element)
-            last_element = element
-
-    return result
-
-print(solution('AAAAABBbCCCCC'))
-print(solution([1,1,1,2,3,4,5,5,5]))
+person = Person("Alice", 30)
+print(person.get_name())  # Виведе: Alice
+person.set_age(31)
+print(person.get_age())  # Виведе: 31
+print(person.set_age(50))
+print(person.get_age())

@@ -1,82 +1,105 @@
-#1. Write a Python program to sum all the items in a list.
-def add_function(numbers_to_add : list):
+# 1. Write a Python program to sum all the items in a list.
+def add_function(numbers_to_add: list):
     total_add_sum = 0
     for num in numbers_to_add:
-        total_add_sum +=num
+        total_add_sum += num
 
     return total_add_sum
 
-print(add_function([1,2,3]))
-#Done
 
-#2. Write a Python program to multiply all the items in a list.
-def multiplication_function(numbers_to_multi : list):
-    total_multi_sum = 1 #always should be 1 becaouse it's multiplication
+print(add_function([1, 2, 3]))
+# Done
+
+
+# Alternative
+def add_function(numbers_to_add: list):
+    return sum(numbers_to_add)
+
+
+# 2. Write a Python program to multiply all the items in a list.
+def multiplication_function(numbers_to_multi: list):
+    total_multi_sum = 1  # always should be 1 becaouse it's multiplication
     for num in numbers_to_multi:
         total_multi_sum *= num
     return total_multi_sum
 
 
-print(multiplication_function([1,2,2,3]))
+print(multiplication_function([1, 2, 2, 3]))
 
-#Done
-#3. Write a Python program to get the largest number from a list.
+# Done
+# 3. Write a Python program to get the largest number from a list.
+
 
 def largest_number_function(numbers: list):
     maximum_number = max(numbers)
     return maximum_number
 
-print(largest_number_function([1,1111,2443,45,65,76,67]))
 
-#Done
+print(largest_number_function([1, 1111, 2443, 45, 65, 76, 67]))
 
-#4. Write a Python program to get the smallest number from a list.
+
+# Alternative
+def largest_number_function(numbers: list):
+    return max(numbers)
+
+
+# Done
+
+# 4. Write a Python program to get the smallest number from a list.
+
 
 def min_number_in_list(numbers: list):
-    for_smallest_number = numbers[0] #Here we assign the integer type of data
-    for num in numbers: #Num here is also an integer, so can work with two integers
-            if num < for_smallest_number: # if large number needed change the < sign to
-                for_smallest_number = num #assign one integer to another
-    return for_smallest_number #and here we return integer
+    for_smallest_number = numbers[0]  # Here we assign the integer type of data
+    for num in numbers:  # Num here is also an integer, so can work with two integers
+        if num < for_smallest_number:  # if large number needed change the < sign to
+            for_smallest_number = num  # assign one integer to another
+    return for_smallest_number  # and here we return integer
 
-print(min_number_in_list([1,1111,2443,45,65,76,67]))
 
-#Done
-#5. Створіть програму на Python, яка розраховує суму всіх цілих чисел від 1 до числа, введеного користувачем.
+print(min_number_in_list([1, 1111, 2443, 45, 65, 76, 67]))
+
+# Done
+# 5. Створіть програму на Python, яка розраховує суму всіх цілих чисел від 1 до числа, введеного користувачем.
 num = int(input("Enter the integer (0 to 100): "))
 sum = 0
 while num > 0:
-   sum +=num
-   num -= 1 
+    sum += num
+    num -= 1
 
-#Done
+# Done
 
-#5. Напишіть функцію get_fullname на Python, яка приймає ім'я, прізвище та, опціонально, друге ім'я (або по батькові) та повертає рядок з повним іменем користувача.
+# 5. Напишіть функцію get_fullname на Python, яка приймає ім'я, прізвище та, опціонально, друге ім'я (або по батькові) та повертає рядок з повним іменем користувача.
 
-def get_fullname(first_name, last_name, middle_name =""  ):
+
+def get_fullname(first_name, last_name, middle_name=""):
     if len(middle_name) == 0:
         return f"{first_name} {last_name}"
     else:
         return f"{first_name} {middle_name} {last_name}"
-    
-#Done
 
-#6. Напишіть функцію format_string, яка центрує рядок у рамках заданої довжини length.
-'''
+
+# Done
+
+# 6. Напишіть функцію format_string, яка центрує рядок у рамках заданої довжини length.
+"""
 Задачі:
 1) Створіть функцію format_string, яка приймає два аргументи: string рядок, який потрібно форматувати та length довжина, у межах якої потрібно центрувати рядок.
 2) Якщо довжина string більша або дорівнює length, поверніть рядок без змін.
 3) Якщо довжина string менша за length, додайте перед рядком пробіли, для того, щоб рядок був центрований у рамках length.
-'''
+"""
+
+
 def format_string(string, length):
     if len(string) >= length:
         return string
     else:
         spaces_count = (length - len(string)) // 2
         return f"{' ' * spaces_count}{string}"
-#Done
 
-'''
+
+# Done
+
+"""
 Наступне завдання буде суто теоретичним, і ми потренуємося створювати функції в Python, які можуть приймати довільну кількість позиційних або ключових аргументів.
 
 Задачі:
@@ -87,23 +110,26 @@ def format_string(string, length):
 Очікуваний результат:
 
 Функції повинні коректно розраховувати суму size та кількості переданих аргументів.
-'''
+"""
+
+
 def first(size, *args):
     ar = len(args)
     total_sum_ar = size + ar
-    
+
     return total_sum_ar
 
 
-def second(size,**kwargs ):
+def second(size, **kwargs):
     kw = len(kwargs)
     total_sum_kw = size + kw
-    
+
     return total_sum_kw
+
 
 # Done
 
-'''
+"""
 Ми проводимо розіграш призів серед перших 50 підписників ютуб-каналу. Ми маємо 7 призів для розіграшу. Може виникнути питання, скільки різних списків переможців ми можемо отримати під час розіграшу? Для цього ми будемо використовувати формулу сполучень без повторень
 
 Cnk = n! / ((n - k)! · k!)
@@ -118,61 +144,78 @@ Cnk = n! / ((n - k)! · k!)
 2.У функції number_of_groups, використовуйте функцію factorial для обчислення факторіалів відповідно до формули сполучень: Cnk = n! / ((n - k)! · k!).
 3.Обчислення здійснюється шляхом виклику функції factorial для отримання факторіалів n, n - k та k.
 4.Поверніть результат цього обчислення.
-'''
-def factorial(n): #функція яка виконує обчислення факторіалу
-    if n < 2: # умова зупинки виклику функції
+"""
+
+
+def factorial(n):  # функція яка виконує обчислення факторіалу
+    if n < 2:  # умова зупинки виклику функції
         return 1
     else:
-        return n * factorial(n - 1) # обчислення факторілу
+        return n * factorial(n - 1)  # обчислення факторілу
 
 
 def number_of_groups(n, k):
-        return factorial(n) // ((factorial(n-k)) * factorial(k)) #використання рекурсивної функції факторіалу
-    
-    
-# Done
-# Task: Write a Python program to find the maximum value in a list.
-def finding_max_in_list(items:list) -> int:
-    max_number = 0
-    for item in items:
-        if item > max_number:
-            max_number = item
-    return max_number
+    return factorial(n) // (
+        (factorial(n - k)) * factorial(k)
+    )  # використання рекурсивної функції факторіалу
 
-
-print(finding_max_in_list([1,2,3,4,5,6,7,1000]))
 
 # Done
 
-#Task: Write a Python program to find the average length of strings in a given list of strings.
-def average_rage_of_string(words:list) -> float: #assign the types of arguments and expected reults
-    total_string_lenght = 0 # assign the variable to count the total lenght of string in list
+
+# Task: Write a Python program to find the average length of strings in a given list of strings.
+def average_rage_of_string(
+    words: list,
+) -> float:  # assign the types of arguments and expected reults
+    total_string_lenght = (
+        0  # assign the variable to count the total lenght of string in list
+    )
     for elem in words:
-        total_string_lenght += len(elem) #counting the total lenght of strings
-    
-    return total_string_lenght / len(words) # return the average of all elemnts in list of strings
+        total_string_lenght += len(elem)  # counting the total lenght of strings
+
+    return total_string_lenght / len(
+        words
+    )  # return the average of all elemnts in list of strings
 
 
-print(average_rage_of_string(['radar', 'level', 'python', 'noon', 'pop']))
+print(average_rage_of_string(["radar", "level", "python", "noon", "pop"]))
 # Done
 
-#Task: Write a Python program to find the longest word in a given list of words.
+# Task: Write a Python program to find the longest word in a given list of words.
 
-def the_longest_word(words:list) -> str: #define the types of data that function have to accept
-    longest_word = '' #create an empty str to assing value from loop
+
+def the_longest_word(
+    words: list,
+) -> str:  # define the types of data that function have to accept
+    longest_word = ""  # create an empty str to assing value from loop
     for elem in words:
-        if len(elem) > len(longest_word): #check if lenght of the previous elemt  bigger then our empty string (here I had to be carful with data type for check "int" should check with "int")
-            longest_word = elem #if True assign str value to our empty string
-    return longest_word #return the biggest string form the list
+        if len(elem) > len(
+            longest_word
+        ):  # check if lenght of the previous elemt  bigger then our empty string (here I had to be carful with data type for check "int" should check with "int")
+            longest_word = elem  # if True assign str value to our empty string
+    return longest_word  # return the biggest string form the list
 
-print(the_longest_word(['radar', 'level', 'python', 'noon', 'pop','jfkdskhjgfjkdfgjgfdjgfdklfgdlkgfdlkgfdklgfdkl']))
+
+print(
+    the_longest_word(
+        [
+            "radar",
+            "level",
+            "python",
+            "noon",
+            "pop",
+            "jfkdskhjgfjkdfgjgfdjgfdklfgdlkgfdlkgfdklgfdkl",
+        ]
+    )
+)
 
 # Done
 
-#Task: Write a Python program to find the longest word in a given list of words. (I added a check for other data types in this function, so now it works only with strings :) )
+# Task: Write a Python program to find the longest word in a given list of words. (I added a check for other data types in this function, so now it works only with strings :) )
 
-def the_longest_word(words:list) -> str:
-    longest_word = '' 
+
+def the_longest_word(words: list) -> str:
+    longest_word = ""
     for elem in words:
         if isinstance(elem, str):
             if len(elem) > len(longest_word):
@@ -181,11 +224,25 @@ def the_longest_word(words:list) -> str:
             print(f" {elem} is't a string, sorry but we work only with strings :)")
     return longest_word
 
-print(the_longest_word([123456,'radar', 'level', 'python', 'noon', 'pop','jfkdskhjgfjkdfgjgfdjgfdklfgdlkgfdlkgfdklgfdkl']))
+
+print(
+    the_longest_word(
+        [
+            123456,
+            "radar",
+            "level",
+            "python",
+            "noon",
+            "pop",
+            "jfkdskhjgfjkdfgjgfdjgfdklfgdlkgfdlkgfdklgfdkl",
+        ]
+    )
+)
 
 # Done
 
-#Task: Write a Python program to find the median of a given list of numbers.
+# Task: Write a Python program to find the median of a given list of numbers.
+
 
 def find_median(numbers):
     numbers.sort()  # Sort the list of numbers
@@ -199,11 +256,12 @@ def find_median(numbers):
         mid2 = mid1 - 1
         return (numbers[mid1] + numbers[mid2]) / 2
 
+
 # Example usage
 my_numbers = [5, 3, 1, 4, 2]
 print("Median of the list:", find_median(my_numbers))
 
-#analyzed
+# analyzed
 
 # Define a list 'a' with some duplicate and unique elements
 a = [10, 20, 30, 20, 10, 50, 60, 40, 80, 50, 40]
@@ -222,29 +280,32 @@ for x in a:
         dup_items.add(x)
 
 # Print the set 'dup_items' which now contains the unique elements from the original list 'a'
-print(dup_items) 
+print(dup_items)
 
-#analyzed
+# analyzed
 
 # Task: Implement a function that checks if two lists have the same elements in the same order and return True if they do, otherwise return False.
-a = [1,2,3]
-def same_elemts_check(elements_set_first: list, elements_set_second: list ) -> bool:
+a = [1, 2, 3]
+
+
+def same_elemts_check(elements_set_first: list, elements_set_second: list) -> bool:
     if elements_set_first is elements_set_second:
         return True
     else:
         return False
 
+
 print(same_elemts_check(a, a))
-print(same_elemts_check(a, [1,2,3]))
+print(same_elemts_check(a, [1, 2, 3]))
 
-#Done
+# Done
 
-#Task: Write the Python program to remove duplicates from a list to also preserve the original order of elements in the list.
+# Task: Write the Python program to remove duplicates from a list to also preserve the original order of elements in the list.
 
-def remove_dublicates(elements:list) -> list:
-    dup_items = set() #here we create a set for duplicates
-    new_list = [] #here we create an empty list to store sorted data
-    
+
+def remove_dublicates(elements: list) -> list:
+    dup_items = set()  # here we create a set for duplicates
+    new_list = []  # here we create an empty list to store sorted data
 
     for elem in elements:
         if elem not in dup_items:
@@ -254,68 +315,82 @@ def remove_dublicates(elements:list) -> list:
             new_list.append(" ")
     return new_list
 
+
 print(remove_dublicates([10, 20, 30, 20, 10, 50, 60, 40, 80, 50, 40]))
 
-#Done
+# Done
 
-#Task: Given an array of string (strs), group the anagrams together. (hash-map)
-from collections import defaultdict #we innitializing this to get an empty dictionaries wil already assign values for "keys" so we don't need to create a key evry time to assign a values into the dictionary
+# Task: Given an array of string (strs), group the anagrams together. (hash-map)
+from collections import (
+    defaultdict,
+)  # we innitializing this to get an empty dictionaries wil already assign values for "keys" so we don't need to create a key evry time to assign a values into the dictionary
+
+
 def groupAnagrams(strs: list[str]) -> list[str]:
-    anagram_map = defaultdict(list) # we created a dictionary by using the defauldict to add new keys with values without creating a key each time for new values and the type for value will be list (by default)
-    result = [] #an empty array that we will return as a result of function
-    
-    for s in strs: #here we are going trought each word in list
-        sorted_s = tuple(sorted(s)) #the main idea here is to sort all elements in word in alphabtic oreder and assign it's copy as a key into our dictionary(anagram_map), we convert it into the tuple because list(mutable) data type can't be the key (always have to be immutable) in dictionaries
-        anagram_map[sorted_s].append(s) #here we added they key to our (anagram map[sorted.s]), and add the word from the (strs) if it's match this key
-    
-    for values in anagram_map.values(): #will give us the list of the values
-        result.append(values) #and for each of this values we are going to append them into our values list and return it
+    anagram_map = defaultdict(
+        list
+    )  # we created a dictionary by using the defauldict to add new keys with values without creating a key each time for new values and the type for value will be list (by default)
+    result = []  # an empty array that we will return as a result of function
+
+    for s in strs:  # here we are going trought each word in list
+        sorted_s = tuple(
+            sorted(s)
+        )  # the main idea here is to sort all elements in word in alphabtic oreder and assign it's copy as a key into our dictionary(anagram_map), we convert it into the tuple because list(mutable) data type can't be the key (always have to be immutable) in dictionaries
+        anagram_map[sorted_s].append(
+            s
+        )  # here we added they key to our (anagram map[sorted.s]), and add the word from the (strs) if it's match this key
+
+    for values in anagram_map.values():  # will give us the list of the values
+        result.append(
+            values
+        )  # and for each of this values we are going to append them into our values list and return it
 
     return result
 
-print(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
 
-#analyzed, done with youtube.
+print(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+
+# analyzed, done with youtube.
 
 
-#Taks: Write a Python program that takes a list of strings as input and prints each string along with its index in the list.
+# Taks: Write a Python program that takes a list of strings as input and prints each string along with its index in the list.
 
-name_list = ['Alice','Bob','Charle','David','Emily']
+name_list = ["Alice", "Bob", "Charle", "David", "Emily"]
 for i, value in enumerate(name_list):
-    print(f'Index is = {i}, value of this index = {value}')
+    print(f"Index is = {i}, value of this index = {value}")
 
-#Done
+# Done
 
-#Write a Python function called combine_lists that takes two lists of equal length as input and returns a list of tuples where each tuple contains elements from corresponding indices of the input lists.
+# Write a Python function called combine_lists that takes two lists of equal length as input and returns a list of tuples where each tuple contains elements from corresponding indices of the input lists.
 list1 = [1, 2, 3, 4]
-list2 = ['a', 'b', 'c', 'd']
+list2 = ["a", "b", "c", "d"]
 new_list = []
 if len(list1) == len(list2):
-    for number, value in zip(list1,list2):
-        appendr =(number,value) 
+    for number, value in zip(list1, list2):
+        appendr = (number, value)
         new_list.append(appendr)
 else:
-    print('lists have not equal lenght')
+    print("lists have not equal lenght")
 
 print(new_list)
 
-#Done
-#Перевірка балансу для здійснення покупки
+# Done
+# Перевірка балансу для здійснення покупки
 balance = 0.7 + 0.6
 print(balance)
-if round(balance, 1) == 1.3: #always use round with float numbers
-    print('Enough')
+if round(balance, 1) == 1.3:  # always use round with float numbers
+    print("Enough")
 else:
-    print('Not Enough')
+    print("Not Enough")
 print(round(balance, 1))
 
-#analyzed
-#У результаті виклику методу now() ми отримуємо об'єкт datetime, у якого є ряд корисних атрибутів:
+# analyzed
+# У результаті виклику методу now() ми отримуємо об'єкт datetime, у якого є ряд корисних атрибутів:
 from datetime import datetime
 
 current_datetime = datetime.now()
 
-print(current_datetime.year) 
+print(current_datetime.year)
 print(current_datetime.month)
 print(current_datetime.day)
 print(current_datetime.hour)
@@ -324,7 +399,7 @@ print(current_datetime.second)
 print(current_datetime.microsecond)
 print(current_datetime.tzinfo)
 
-#analyzed
+# analyzed
 # Datetime for homework
 from datetime import datetime
 
@@ -335,11 +410,11 @@ datetime2 = datetime(2023, 3, 15, 12, 0)
 # Порівняння дат
 print(datetime1 == datetime2)  # False, тому що дати не однакові
 print(datetime1 != datetime2)  # True, тому що дати різні
-print(datetime1 < datetime2)   # True, тому що datetime1 передує datetime2
-print(datetime1 > datetime2)   # False, тому що datetime1 не наступає за datetime2
-#analyzed
+print(datetime1 < datetime2)  # True, тому що datetime1 передує datetime2
+print(datetime1 > datetime2)  # False, тому що datetime1 не наступає за datetime2
+# analyzed
 
-#Якщо відняти від одного datetime об'єкту інший, то отримаємо timedelta об'єкт. Він відповідає за відрізок часу між двома датами.
+# Якщо відняти від одного datetime об'єкту інший, то отримаємо timedelta об'єкт. Він відповідає за відрізок часу між двома датами.
 from datetime import datetime
 
 seventh_day_2019 = datetime(year=2019, month=1, day=7, hour=14)
@@ -351,19 +426,19 @@ print(difference.total_seconds())  # 31536000.0
 print(type(difference))
 print(type(seventh_day_2019))
 
-#analyzed
+# analyzed
 
-#Вибір з вагами:
+# Вибір з вагами:
 import random
 
-colors = ['червоний', 'зелений', 'синій']
-weights = [10, 1, 1] #задає weight для списку
+colors = ["червоний", "зелений", "синій"]
+weights = [10, 1, 1]  # задає weight для списку
 chosen_color = random.choices(colors, weights, k=1)
-print(chosen_color) 
+print(chosen_color)
 
-#analyzed
+# analyzed
 
-'''
+"""
 Вимоги до завдання:
 
 Параметри функції:
@@ -373,60 +448,74 @@ quantity - кількість чисел, які потрібно вибрати
 Функція генерує вказану кількість унікальних чисел у заданому діапазоні.
 Функція повертає список випадково вибраних, відсортованих чисел. Числа в наборі не повинні повторюватися. Якщо параметри не відповідають заданим обмеженням, функція повертає пустий список.
 
-'''
+"""
 
 import random
 
+
 def get_numbers_ticket(min, max, quantity):
-    if min < 1 or max > 1000 or max < min or quantity <1 or quantity > 1000 or quantity > max-min+1:
+    if (
+        min < 1
+        or max > 1000
+        or max < min
+        or quantity < 1
+        or quantity > 1000
+        or quantity > max - min + 1
+    ):
         print(f"Out of range")
         return list()
-    else: 
+    else:
         ticket_list = set()
         while len(ticket_list) < quantity:
             ticket_list.add(random.randint(min, max))
 
         print(f"The range of number starts from: {min} to {max}")
         return ticket_list
-          
-        
+
 
 lottery_numbers = get_numbers_ticket(1, 100, 9)
 print("Ваші лотерейні числа:", lottery_numbers)
 print(len(lottery_numbers))
 
-#Done
+# Done
 
 import random
 import time
 
 start_time = time.perf_counter()
 
-#Task #2
+
+# Task #2
 def get_numbers_ticket(min, max, quantity):
-    if min < 1 or max > 1000 or max < min or quantity <1 or quantity > 1000 or quantity > max-min+1:
+    if (
+        min < 1
+        or max > 1000
+        or max < min
+        or quantity < 1
+        or quantity > 1000
+        or quantity > max - min + 1
+    ):
         print(f"Out of range")
         return list()
     # else:
     #     ticket_list = range(min, max+1)
     #     the_main_list = sorted(random.sample(ticket_list, quantity))
-    #     #final_list = sorted(the_main_list)   
+    #     #final_list = sorted(the_main_list)
     # return the_main_list
     # Nice one option :)
-    #return sorted(random.sample(range(min, max+1), quantity))
-    
+    # return sorted(random.sample(range(min, max+1), quantity))
+
 
 lottery_numbers = get_numbers_ticket(1, 49, 6)
 print("Ваші лотерейні числа:", lottery_numbers)
-        
+
 end_time = time.perf_counter()
 
 execution_time = end_time - start_time
 print(f"Час виконання: {execution_time} секунд")
-    
-#0.0001981999957934022 секунд > Час виконання: 0.00016469997353851795 секунд
-#Done
 
+# 0.0001981999957934022 секунд > Час виконання: 0.00016469997353851795 секунд
+# Done
 
 
 # Autotest task 1
@@ -434,26 +523,26 @@ from datetime import datetime
 
 
 def string_to_date(date_string):
-    datetime_object = datetime.strptime(date_string, '%Y.%m.%d')
+    datetime_object = datetime.strptime(date_string, "%Y.%m.%d")
     return datetime_object
-    
-    
+
+
 def date_to_string(date):
-    string_object = date.strftime('%Y-%m-%d')
+    string_object = date.strftime("%Y-%m-%d")
     return string_object
 
-'''
+
+"""
 Якщо функція string_to_date отримала рядок 2020.01.01 то вона повинно повернути обєкт datatime: 2020-01-01. Поточний результат: : time data '2020.01.01' does not match format '%Y-%m-%d'
 
-'''
+"""
 
-print(string_to_date('2020.01.01'))
+print(string_to_date("2020.01.01"))
 
 #  У Харкові відкривають у бомбосховищі школу для молодших школярів.
 # Треба  обладнати три кімнати партами. Парта  - на дві людини.
 # Програмі подається на вхід три числа (трьома input)  - кількість учнів в кожному
 # класі. Програма має порахувати необхідну кількість парт загалом.
-
 
 
 # first_class_people = int(input('Введіть кількість учнів першому классі:'))
@@ -462,7 +551,7 @@ print(string_to_date('2020.01.01'))
 
 
 # first_class_tables = first_class_people // 2 + first_class_people % 2
-# second_class_tables = second_class_people // 2 + second_class_people % 2 
+# second_class_tables = second_class_people // 2 + second_class_people % 2
 # third_class_tables = third_class_people // 2 + third_class_people % 2
 
 # print(f'В перший класс потрібно {first_class_tables} парт,В другий класс потрібно {second_class_tables} парт, В третій класс потрібно {third_class_tables} парт, всьго потрібно парт {first_class_tables + second_class_tables + third_class_tables }')
@@ -488,10 +577,10 @@ print(string_to_date('2020.01.01'))
 #      print(' '*(i-1) + 'x'*(10-i*2+1))
 #      i -= 1
 
-#Done
+# Done
 
-# В рядку написан текст. 
-# Для кожного слова підрахуйте 
+# В рядку написан текст.
+# Для кожного слова підрахуйте
 # кілька разів воно зустрічалось в цьому тексті.
 
 # text = '''
@@ -502,7 +591,7 @@ print(string_to_date('2020.01.01'))
 # text_splt = text.split()
 # for word in text_splt:
 #     word_counter[word] = word_counter.get(word, 0) + 1
-# # Перегорнули список    
+# # Перегорнули список
 # word_counter_reversed = {}
 # for key, value in word_counter.items():
 #     word_counter_reversed[value] = word_counter_reversed.get(value, []) + [key]
@@ -515,18 +604,18 @@ print(string_to_date('2020.01.01'))
 
 
 # Нам треба написати код, який обробляє URL пошукового запиту, щоб видобути параметри запиту та перетворити їх у формат, з яким легше працювати в Python.
-#Перший шаг ми відділяємо параметри запросу
+# Перший шаг ми відділяємо параметри запросу
 url_search = "<https://www.google.com/search?q=Cat+and+dog&ie=utf-8&oe=utf-8&aq=t>"
-_, query = url_search.split('?')
+_, query = url_search.split("?")
 print(query)
 # дадаємо словник з ключ значеннями і розділяємо його
 obj_query = {}
-for el in query.split('&'):
-    key, value = el.split('=')
-    obj_query.update({key: value.replace('+', ' ')})
+for el in query.split("&"):
+    key, value = el.split("=")
+    obj_query.update({key: value.replace("+", " ")})
 print(obj_query)
 
-#Analyzed
+# Analyzed
 # Autocheck #2 module 3
 from datetime import datetime
 
@@ -540,10 +629,11 @@ def prepare_user_list(user_data):
         user["birthday"] = string_to_date(user["birthday"])
     return user_data
 
-#done #analyzed
 
-# Пригадаємо як звучить наше завдання. У межах вашої організації, ви відповідаєте за організацію привітань колег з днем народження. Щоб оптимізувати цей процес, 
-# вам потрібно створити функцію get_upcoming_birthdays, яка допоможе вам визначати, кого з колег потрібно привітати. 
+# done #analyzed
+
+# Пригадаємо як звучить наше завдання. У межах вашої організації, ви відповідаєте за організацію привітань колег з днем народження. Щоб оптимізувати цей процес,
+# вам потрібно створити функцію get_upcoming_birthdays, яка допоможе вам визначати, кого з колег потрібно привітати.
 # Функція повинна повернути список всіх у кого день народження вперед на 7 днів включаючи поточний день.
 
 from datetime import datetime, date, timedelta
@@ -560,7 +650,9 @@ def date_to_string(date):
 def prepare_user_list(user_data):
     prepared_list = []
     for user in user_data:
-        prepared_list.append({"name": user["name"], "birthday": string_to_date(user["birthday"])})
+        prepared_list.append(
+            {"name": user["name"], "birthday": string_to_date(user["birthday"])}
+        )
     return prepared_list
 
 
@@ -574,7 +666,7 @@ def find_next_weekday(start_date, weekday):
 def adjust_for_weekend(birthday):
     if birthday.weekday() >= 5:
         return find_next_weekday(birthday, 0)
-    return birthday #повертає обект datetime.date
+    return birthday  # повертає обект datetime.date
 
 
 def get_upcoming_birthdays(users, days=7):
@@ -584,44 +676,46 @@ def get_upcoming_birthdays(users, days=7):
     for user in users:
         birthday_this_year = user["birthday"].replace(year=today.year)
         if birthday_this_year < today:
-            birthday_this_year = user["birthday"].replace(year=today.year+1)
-        
+            birthday_this_year = user["birthday"].replace(year=today.year + 1)
+
         """
         Додайте на цьому місці перевірку, чи не буде 
         припадати день народження вже наступного року.
         """
-           
 
         if 0 <= (birthday_this_year - today).days <= days:
             if birthday_this_year.weekday() >= 5:
                 birthday_this_year = find_next_weekday(birthday_this_year, 0)
-            
+
             """ 
             Додайте перенесення дати привітання на наступний робочий день,
             якщо день народження припадає на вихідний. 
             """
-        
+
             congratulation_date_str = date_to_string(birthday_this_year)
-            upcoming_birthdays.append({"name": user["name"], "congratulation_date": congratulation_date_str})
+            upcoming_birthdays.append(
+                {"name": user["name"], "congratulation_date": congratulation_date_str}
+            )
     return upcoming_birthdays
 
-#done # Saved for future projects
+
+# done # Saved for future projects
 
 
-#Всі файли потрібно навмистно приводити до UTF - 8 такі правила...
+# Всі файли потрібно навмистно приводити до UTF - 8 такі правила...
 # Відкриття текстового файлу з явним вказівкам UTF-8 кодування
-with open('example.txt', 'r', encoding='utf-8') as file:
+with open("example.txt", "r", encoding="utf-8") as file:
     content = file.read()
     print(content)
-#Analyzed
+# Analyzed
 
 
-'''
+"""
 Дан рядок. 
 Розріжте його навпіл і переставте ці половинки містами.
 Якщо довжина непарна, то перша частина буде більшою.
 
-'''
+"""
 
 
 # line = '12345'
@@ -631,15 +725,14 @@ with open('example.txt', 'r', encoding='utf-8') as file:
 # reversed_line =  second_half + first_half
 
 # print(reversed_line)
-   
-   
-   
-'''
+
+
+"""
 Дан рядок.
 НАйдіть в ньому другу букву "а". Виведіть індекс.
 Якщо є тільки одна  - виведить "alone", якщо взагалі нема
 виведіть None
-'''
+"""
 # def find_second_occurrence(s, char):
 #     first_occurrence = s.find(char)
 #     if first_occurrence == -1:
@@ -650,7 +743,7 @@ with open('example.txt', 'r', encoding='utf-8') as file:
 
 # index_of_second_a = find_second_occurrence("banaaana", "a")
 # print(index_of_second_a)
-'''
+"""
 У Джо Палуки товсті пальці, тому він завжди натискає клавішу "Caps Lock", коли насправді має намір натиснути клавішу "a". 
 (Коли Джо намагається ввести якусь акцентовану версію "a", яка потребує більше натискань клавіш для створення акцентів, 
 він більш обережний у присутності таких рафінованих символів ([Shift] + [a]) і буде натискати клавіші правильно). 
@@ -659,7 +752,7 @@ with open('example.txt', 'r', encoding='utf-8') as file:
 assert caps_lock("Why are you asking me that?") == "Why RE YOU sking me thT?"
 assert caps_lock("Always wanted to visit Zambia.") == "AlwYS Wnted to visit ZMBI."
 assert caps_lock("Aloha from Hawaii") == "Aloh FROM HwII"
-'''  
+"""
 
 # def caps_lock(text):
 #     formated_text = text.split('a')
@@ -668,22 +761,19 @@ assert caps_lock("Aloha from Hawaii") == "Aloh FROM HwII"
 #     print(''.join(formated_text))
 #     return ''.join(formated_text)
 
-    
-
-
 
 # assert caps_lock("Why are you asking me that?") == "Why RE YOU sking me thT?"
 # assert caps_lock("Always wanted to visit Zambia.") == "AlwYS Wnted to visit ZMBI."
 # assert caps_lock("Aloha from Hawaii") == "Aloh FROM HwII"
 
-'''
+"""
 Як із рядка слов отримати словник де ключи та значення записані попарно.
 Наприклад: "Hello Hi Bye Goodbye List Array"
 {"Hello": "Hi", 
 "Bye": "Goodbye", 
 "List": "Array"}
-'''
-'''
+"""
+"""
 У тебе є таблиця з усіма наявними товарами в магазині. Дані представлені у вигляді списку словників
 
 Твоя місія - знайти ТОП найдорожчих товарів. Кількість товарів, які ми шукаємо, буде передано у першому аргументі, а самі дані щодо товарів будуть передані другим аргументом.
@@ -706,14 +796,13 @@ assert bigger_price(
 assert bigger_price(
     1, [{"name": "pen", "price": 5}, {"name": "whiteboard", "price": 170}]
 ) == [{"name": "whiteboard", "price": 170}]
-'''
+"""
 # def sort_price(dict_:dict):
 #     return -dict_['price'] #check tommorow
 
 # def bigger_price(count:int , goods:list):
 #     print(sorted(goods, key=sort_price)[:count])
 #     return sorted(goods, key=sort_price)[:count]
-
 
 
 # assert bigger_price(
@@ -729,7 +818,7 @@ assert bigger_price(
 #     1, [{"name": "pen", "price": 5}, {"name": "whiteboard", "price": 170}]
 # ) == [{"name": "whiteboard", "price": 170}]
 
-'''
+"""
 Тобі дано словник із акціями і їх цінами. Функція повинна повертати найдорожчу акцію.
 
 Вхідні значення: Словник, у якому біржовий тікер (коротка назва) акції є ключем, а значенням є ціна цієї акції.
@@ -742,18 +831,18 @@ assert best_stock({"CAC": 10.0, "ATX": 390.2, "WIG": 1.2}) == "ATX"
 assert best_stock({"CAC": 91.1, "ATX": 1.01, "TASI": 120.9}) == "TASI"
 
 Передумови: Ціни є унікальними, тобто не повторюються.
-'''
+"""
 
 
 # def best_stock(stock):
 #     print(sorted(stock, key=stock.get))
 #     return sorted(stock, key=stock.get)[-1]
-    
+
 
 # assert best_stock({"CAC": 10.0, "ATX": 390.2, "WIG": 1.2}) == "ATX"
 # assert best_stock({"CAC": 91.1, "ATX": 1.01, "TASI": 120.9}) == "TASI"
 
-'''
+"""
 Coin Change Problem
 You are given an unlimited supply of coins of certain denominations and a total amount of money. 
 Write a function that returns the number of distinct ways you can make the total amount using these coins. 
@@ -766,7 +855,7 @@ amount: an integer representing the total amount of money.
 Output:
 
 Return the number of ways you can make the amount using any number of coins from coins.
-'''
+"""
 
 # def count_ways(coins, amount):
 #     cache = {}
@@ -776,8 +865,8 @@ Return the number of ways you can make the amount using any number of coins from
 #         elif current_amount == 0:
 #             return 1
 #         elif current_amount < 0:
-#             return 0 
-    
+#             return 0
+
 #         result = 0
 #         for coin in coins:
 #             result += recursive_count(current_amount - coin)
@@ -785,7 +874,7 @@ Return the number of ways you can make the amount using any number of coins from
 #         cache[current_amount] = result
 #         return result
 #     return recursive_count(amount)
-    
+
 # coins = [1, 3, 4]
 # amount = 10
 # print(count_ways(coins, amount))
@@ -799,6 +888,8 @@ attack (напад) - дозволяє покемону атакувати ін�
 dodge (уклон) - дає можливість уникнути атаки.
 evolve (еволюціонувати) - дозволяє покемону еволюціонувати в іншу форму.
 """
+
+
 class Pokemon:
     def __init__(self, name, type, health):
         self.name = name
@@ -815,6 +906,7 @@ class Pokemon:
         print(f"{self.name} is evolving into {new_form}!")
         self.name = new_form
 
+
 # Створення об'єкта Pikachu
 pikachu = Pokemon("Pikachu", "Electric", 100)
 
@@ -824,13 +916,12 @@ pikachu.dodge()
 pikachu.evolve("Raichu")
 
 
-'''
+"""
 Taks polindrome problem: context - is a word a polindrome?
-'''
+"""
 
 # def is_palindrome(word: str) -> bool:
 #     return word.lower() == word[::-1].lower()
-    
 
 
 # print(is_palindrome('radar'))  # True
@@ -849,9 +940,9 @@ Taks polindrome problem: context - is a word a polindrome?
 # #         return False
 
 
-'''
+"""
 Booking a hotel room: context : find out if the number is available for booking.
-'''
+"""
 
 # def calculate_guests(request: str) -> int or str:
 #     number_of_guests = ''
@@ -860,11 +951,10 @@ Booking a hotel room: context : find out if the number is available for booking.
 #         if char.isnumeric():
 #             number_of_guests += char
 #         elif len(number_of_guests) != 0:
-#             break 
-        
-#     print(number_of_guests)     
+#             break
+
+#     print(number_of_guests)
 #     return 'not a number' if number_of_guests == '' or number_of_guests == '0' else int(number_of_guests)
- 
 
 
 # print(calculate_guests("I think 5 guests") == 5)
@@ -876,14 +966,13 @@ Booking a hotel room: context : find out if the number is available for booking.
 # print(calculate_guests("There will be 7 or 9 guys") == 7)
 # print(calculate_guests("hello cat walks on my keyboard ksadjfhskaj12.34kasdfhsjk") == 12)
 
-'''
+"""
 Taks 3: check if the string is in alphabtick oreder or not :)
-'''
+"""
 
 # def is_alphabet(symbols:str) -> bool:
 #     alphabet = "abcdefghijklmnopqrstuvwxyz"
 #     return  symbols.lower() in alphabet
-
 
 
 # print(is_alphabet("abc")) #isTrue
@@ -895,14 +984,14 @@ Taks 3: check if the string is in alphabtick oreder or not :)
 # print(is_alphabet("XYZ")) #isTrue
 
 
- # formated_str = symbols.lower()
-    # alphabet = "abcdefghijklmnopqrstuvwxyz"
-    # if formated_str in alphabet:
-    #     return True
-    # else:
-    #     return False
+# formated_str = symbols.lower()
+# alphabet = "abcdefghijklmnopqrstuvwxyz"
+# if formated_str in alphabet:
+#     return True
+# else:
+#     return False
 
-'''
+"""
 Codeland Username Validation
 Have the function CodelandUsernameValidation(str) take the str parameter being passed and determine if the string is a valid username according to the following rules:
 
@@ -917,14 +1006,17 @@ Input: "aa_"
 Output: false
 Input: "u__hello_world123"
 Output: true
-'''
+"""
 
 # Chat GPT attempt
 import re
 
+
 def CodelandUsernameValidation(strParam):
     # Define the pattern to match valid usernames
-    pattern = re.compile(r'^[a-zA-Z][a-zA-Z0-9_]{2,24}$')  # Username length: 4-25 characters
+    pattern = re.compile(
+        r"^[a-zA-Z][a-zA-Z0-9_]{2,24}$"
+    )  # Username length: 4-25 characters
 
     # Check if the string length is within the valid range
     if len(strParam) < 4 or len(strParam) > 25:
@@ -935,15 +1027,16 @@ def CodelandUsernameValidation(strParam):
         return False
 
     # Check if the username ends with an underscore
-    if strParam.endswith('_'):
+    if strParam.endswith("_"):
         return False
 
     return True
 
+
 # That Works
 
 
-#My attemp
+# My attemp
 
 # def CodelandUsernameValidation(strParam):
 #         numbers = '1234567890'
@@ -961,142 +1054,155 @@ def CodelandUsernameValidation(strParam):
 #                 return True
 
 
-# keep this function call here 
+# keep this function call here
 print(CodelandUsernameValidation("u__hello_world123"))
 
-'''
+"""
 Dict task: 1
-'''
+"""
 
-def user_update(user_data:list) -> None:
+
+def user_update(user_data: list) -> None:
     for user in user_data:
-        user['full_name'] = user['first_name'] +' '+ user['last_name']
-        print(user['full_name'])
-    
-
+        user["full_name"] = user["first_name"] + " " + user["last_name"]
+        print(user["full_name"])
 
 
 users = [
-  {
-    "first_name": "Jack",
-    "last_name": "Holy",
-  },
-  {
-    "first_name": "Mike",
-    "last_name": "Adams",
-  },
+    {
+        "first_name": "Jack",
+        "last_name": "Holy",
+    },
+    {
+        "first_name": "Mike",
+        "last_name": "Adams",
+    },
 ]
 
 print(user_update(users))
 print(users)
 
-'''
+"""
 Dict task: 2 
-'''
+"""
 
-def user_update(user_data:list) -> None:
+
+def user_update(user_data: list) -> None:
     for user in user_data:
-        user['first_name'] = user['full_name'].split(' ')[0]
-        
+        user["first_name"] = user["full_name"].split(" ")[0]
+
 
 users = [
-        { 'last_name': 'Holy', 'full_name': 'Jack Holy'}, 
-         { 'last_name': 'Adams', 'full_name': 'Mike Adams'},
-         { 'last_name': 'Adams', 'full_name': 'Mikessss Adams'}
-        ]
+    {"last_name": "Holy", "full_name": "Jack Holy"},
+    {"last_name": "Adams", "full_name": "Mike Adams"},
+    {"last_name": "Adams", "full_name": "Mikessss Adams"},
+]
 
 print(user_update(users))
 print(users)
 
-'''
+"""
 Dict task: 3 
-'''
+"""
 
-def user_update(user_data:list) -> None:
+
+def user_update(user_data: list) -> None:
     for user in user_data:
         if user["status"] == "disabled":
             user.pop("country")
 
-        
 
 users = [
-  { "name": "Emma", "status": "active", "country": "Ukraine" },
-  { "name": "Avram", "status": "disabled", "country": "Poland" },
-  { "name": "Avram", "status": "active", "country": "Poland" },
-  { "name": "Avram", "status": "disabled", "country": "Poland" },
+    {"name": "Emma", "status": "active", "country": "Ukraine"},
+    {"name": "Avram", "status": "disabled", "country": "Poland"},
+    {"name": "Avram", "status": "active", "country": "Poland"},
+    {"name": "Avram", "status": "disabled", "country": "Poland"},
 ]
 
 print(user_update(users))
 print(users)
 
-'''
+"""
 Dict task: 4 
-'''
+"""
 
-def robot_version_check(robot_data:list, version:int) -> None:
-    index_list =[i for i, item in enumerate(robot_data) if item["core_version"] < version]
+
+def robot_version_check(robot_data: list, version: int) -> None:
+    index_list = [
+        i for i, item in enumerate(robot_data) if item["core_version"] < version
+    ]
     # for i, item in enumerate(robot_data): #good function make a note
     #     if item["core_version"] < version:
     #         index_list.append(i)
     return index_list
-            
+
 
 robots = [
-  { "core_version": 9 },
-  { "core_version": 13 },
-  { "core_version": 16 },
-  { "core_version": 9 },
-  { "core_version": 14 },
+    {"core_version": 9},
+    {"core_version": 13},
+    {"core_version": 16},
+    {"core_version": 9},
+    {"core_version": 14},
 ]
 
-print(robot_version_check(robots, 10))  #[0, 3])
-print(robot_version_check(robots, 14))  #[0, 1, 3])
-print(robot_version_check(robots, 8))  #[])
-print(robot_version_check(robots, 18))  #[0, 1, 2, 3, 4])
+print(robot_version_check(robots, 10))  # [0, 3])
+print(robot_version_check(robots, 14))  # [0, 1, 3])
+print(robot_version_check(robots, 8))  # [])
+print(robot_version_check(robots, 18))  # [0, 1, 2, 3, 4])
 
-'''
+"""
 Dict task with lambda: 5 
-'''
+"""
 
-def calculator(number1:int , number2:int , operator:str):
-    operations = {'+': lambda x, y: x+y,
-                  '-': lambda x, y: x-y,
-                  '*': lambda x, y: x*y,
-                  '/': lambda x, y: x/y}
-    return operations[operator](number1,number2)
 
-print(calculator(1,2,'+'))
+def calculator(number1: int, number2: int, operator: str):
+    operations = {
+        "+": lambda x, y: x + y,
+        "-": lambda x, y: x - y,
+        "*": lambda x, y: x * y,
+        "/": lambda x, y: x / y,
+    }
+    return operations[operator](number1, number2)
 
-'''
+
+print(calculator(1, 2, "+"))
+
+"""
 Dict task with tuple: 6 
-'''
+"""
 
-def create_dino_archive(name:list, lenght:list, diets:list):
-    dino_list = zip(name, lenght, diets) #remember zip always return tuple!
+
+def create_dino_archive(name: list, lenght: list, diets: list):
+    dino_list = zip(name, lenght, diets)  # remember zip always return tuple!
     return list(dino_list)
-    
+
 
 dino_name = ["Tyrannosaurus", "Velociraptor", "Triceratops", "Saltopus"]
 dino_lenghts = [12, 2, 9, 1]
 dino_diets = ["carnivorous", "carnivorous", "herbivorous", "herbivorous"]
 
-print(create_dino_archive(dino_name, dino_lenghts, dino_diets)) 
+print(create_dino_archive(dino_name, dino_lenghts, dino_diets))
 # [("Tyrannosaurus", 12, "carnivorous"), ("Velociraptor", 2, "carnivorous"), ("Triceratops", 9, "herbivorous"), ("Saltopus", 1, "herbivorous")]
 
 
-'''
+"""
 Dict comp task with tuple: 6 
-'''
+"""
 
-def norm_data(data:list):
-    formated_data = {user[0]:{'name':user[1],'login':user[2],'Password':user[3] } for user in data }
+
+def norm_data(data: list):
+    formated_data = {
+        user[0]: {"name": user[1], "login": user[2], "Password": user[3]}
+        for user in data
+    }
     print(formated_data)
 
+
 users = [
-    (12, 'Maxim', 'maxim@example.com', 'UBg11eub42hge'),
-    (13, 'Dmitro', 'dmitro@example.com', 'sdTioT36723fw'),
-    (14, 'Roman', 'roman@example.com', 'hbFEkj34NggE2'),
-    (15, 'Ivan', 'ivan@example.com', 'sdTioT36723fw'),
+    (12, "Maxim", "maxim@example.com", "UBg11eub42hge"),
+    (13, "Dmitro", "dmitro@example.com", "sdTioT36723fw"),
+    (14, "Roman", "roman@example.com", "hbFEkj34NggE2"),
+    (15, "Ivan", "ivan@example.com", "sdTioT36723fw"),
 ]
 
 print(norm_data(users))
@@ -1117,15 +1223,15 @@ print(norm_data(users))
 """
 from collections import UserList
 
+
 class Warrior:
     def __init__(self, health=50, attack=5) -> None:
         self.health = health
         self.attack = attack
-    
+
     @property
     def is_alive(self):
         return self.health > 0
-
 
     def damage(self, attack):
         self.health -= attack
@@ -1140,30 +1246,28 @@ class Knight(Warrior):
 
 
 class Defender(Warrior):
-    def __init__(self, health=60, attack=3, defence = 2) -> None:
+    def __init__(self, health=60, attack=3, defence=2) -> None:
         super().__init__(health=health, attack=attack)
         self.defence = defence
 
-    
     def damage(self, attack):
         if attack > self.defence:
             self.health -= attack - self.defence
 
-    
-class Army(UserList):
-    def add_units(self, warriors_type:Warrior, amount:int):
-        for _ in range(amount):
-            self.data.append(warriors_type()) # создаём 20 экземпляров класса
 
+class Army(UserList):
+    def add_units(self, warriors_type: Warrior, amount: int):
+        for _ in range(amount):
+            self.data.append(warriors_type())  # создаём 20 экземпляров класса
 
     @property
     def is_exist(self):
-        return bool(self.data) > 0 
+        return bool(self.data) > 0
 
 
 class Battle:
 
-    def fight(self, first_army:Army, second_army:Army):
+    def fight(self, first_army: Army, second_army: Army):
         while first_army.is_exist and second_army.is_exist:
             if fight(first_army[0], second_army[0]):
                 second_army.pop(0)
@@ -1172,7 +1276,7 @@ class Battle:
         return first_army.is_exist
 
 
-def fight(fighter1:Warrior, fighter2:Warrior):
+def fight(fighter1: Warrior, fighter2: Warrior):
     while fighter1.is_alive and fighter2.is_alive:
         fighter1.hit(fighter2)
         # fighter2.health -= fighter1.attack
@@ -1181,11 +1285,10 @@ def fight(fighter1:Warrior, fighter2:Warrior):
     return fighter1.is_alive
 
 
+if __name__ == "__main__":
+    # These "asserts" using only for self-checking and not necessary for auto-testing
 
-if __name__ == '__main__':
-    #These "asserts" using only for self-checking and not necessary for auto-testing
-    
-    #fight tests
+    # fight tests
     chuck = Warrior()
     bruce = Warrior()
     carl = Knight()
@@ -1207,10 +1310,10 @@ if __name__ == '__main__':
     assert fight(bob, mike) == False
     assert fight(lancelot, rog) == True
 
-    #battle tests
+    # battle tests
     my_army = Army()
     my_army.add_units(Defender, 1)
-    
+
     enemy_army = Army()
     enemy_army.add_units(Warrior, 2)
 
@@ -1226,17 +1329,18 @@ if __name__ == '__main__':
     assert battle.fight(my_army, enemy_army) == False
     assert battle.fight(army_3, army_4) == True
     print("Coding complete? Let's try tests!")
-'''
+"""
 Дано текст і потрібно знайти його перше слово.
 
 Даний текст містить англійські букви та пробіли.
 На початку та у кінці пробілів немає.
-'''
+"""
+
 
 def first_word(text: str) -> str:
-    word =''
+    word = ""
     for leter in text:
-        if leter == ' ':
+        if leter == " ":
             break
         else:
             word += leter
@@ -1244,10 +1348,11 @@ def first_word(text: str) -> str:
     return word
 
 
-#alterative that is faster because of method using
+# alterative that is faster because of method using
 def first_word_2(text):
     index = text.find(" ")
     return text[:index] if index != -1 else text
+
 
 print("Example:")
 print(first_word("Hello world"))
@@ -1261,13 +1366,17 @@ assert first_word("hi") == "hi"
 print("The mission is done! Click 'Check Solution' to earn rewards!")
 
 
-'''
+"""
 Ця функція повинна приймати на вхід рядок і повертати кількість голосних (a, e, i, o, u) у рядку. Функція повинна бути нечутливою до регістру.
-'''
+"""
+
+
 def count_vowels(text: str) -> int:
     counter = 0
     for char in text.lower():
-            counter += char in 'aeiou'  #in this case it returns True or False and Python can interpritate it as 1 (True) or 0 (False), so we can do math with that.
+        counter += (
+            char in "aeiou"
+        )  # in this case it returns True or False and Python can interpritate it as 1 (True) or 0 (False), so we can do math with that.
     return counter
 
 
@@ -1275,45 +1384,47 @@ print("Example:")
 print(count_vowels("Hello"))
 
 
-'''
+"""
 Ця функція повинна приймати на вхід рядок без розділових знаків і повертати найдовше слово у рядку. 
 Якщо у рядку є декілька слів однакової довжини, поверніть перше, яке з'явиться на екрані.
-'''
+"""
 
 
-#My option
+# My option
 def longest_word(sentence: str) -> str:
-    formated_text = sentence.split(' ')
-    longest_word = ''
+    formated_text = sentence.split(" ")
+    longest_word = ""
     print(formated_text)
     for word in formated_text:
         if len(word) > len(longest_word):
             longest_word = word
-    
+
     return longest_word
 
 
-#alterantive "clear"
+# alterantive "clear"
 def longest_word(sentence: str) -> str:
-    return max(sentence.split(), key=len, default='')
+    return max(sentence.split(), key=len, default="")
 
 
-#alterantive "creative"
+# alterantive "creative"
 def longest_word(sentence: str) -> str:
-    sentence_sorted = sorted(sentence.split(' '), key=len, reverse=True)
+    sentence_sorted = sorted(sentence.split(" "), key=len, reverse=True)
     return sentence_sorted[0]
 
-'''
+
+"""
 Ми маємо список логічних (булевих) значень. Давай перевіримо, чи більшість елементів є True.
 
 Деякі випадки, варті згадки: 1) порожній список повинен повертати False; 2) якщо однакова кількість True і False, функція повинна повертати False.
-'''
+"""
+
 
 def is_majority(items: list[bool]) -> bool:
     counter = 0
     for element in items:
         if element:
-            counter +=1
+            counter += 1
         else:
             counter -= 1
 
@@ -1325,17 +1436,17 @@ def is_majority(items: list[bool]) -> bool:
         return False
 
 
-#Alternative solutions
+# Alternative solutions
 
 # def is_majority(items: list) -> bool:
 #     return sum(items) > len(items) / 2
 
 
-'''
+"""
 Надано масив з позитивними числами і число N. 
 Ви повинні знайти N-ну ступінь елемента в масиві з індексом N. 
 Якщо N за межами масива, тодi повернути -1. 
-'''
+"""
 
 print("Example:")
 print(is_majority([True, True, False, True, False]))
@@ -1356,15 +1467,17 @@ def index_power(ar: list[int], n: int) -> int:
     if n > len(ar):
         return -1
     else:
-        for idx,elem in enumerate(ar):
+        for idx, elem in enumerate(ar):
             if idx == n:
-                return elem ** n
-        
-#Alternative solution        
+                return elem**n
+
+
+# Alternative solution
 def index_power(array, n):
-    try: return array[n] ** n
-    except IndexError: return -1           
-        
+    try:
+        return array[n] ** n
+    except IndexError:
+        return -1
 
 
 print("Example:")
@@ -1378,10 +1491,11 @@ assert index_power([1, 2], 3) == -1
 
 print("The mission is done! Click 'Check Solution' to earn rewards!")
 
-'''
+"""
 Задано масив цілих чисел. Потрібно знайти суму елементів з парними індексами (0-й, 2-й, 4-й і т.д.), а потім перемножити цю суму і останній елемент вихідного масиву. 
 Не забудьте, що перший елемент масиву має індекс 0.
-'''
+"""
+
 
 def checkio(array: list[int]) -> int:
     data = []
@@ -1391,13 +1505,13 @@ def checkio(array: list[int]) -> int:
         for idx, elem in enumerate(array):
             if idx % 2 == 0:
                 data.append(elem)
-        
+
     return sum(data) * array[-1]
 
-#alternative
+
+# alternative
 # if len(array) == 0: return 0
 #     return sum(array[0::2]) * array[-1]
-
 
 
 print("Example:")
@@ -1412,12 +1526,13 @@ assert checkio([]) == 0
 # print("The mission is done! Click 'Check Solution' to earn rewards!")
 
 
-'''
+"""
 "Іноді, нулі нагадують дуже смачні пончики. І кожного разу, коли ми доїдаємо пончик, нам хочеться ще один, а потім ще один, а потім ще..."
 
 Тобі дано список з цілими числами. Твоя задача в цій місії - продублювати (..., 🍩, ... --> ..., 🍩, 🍩, ...) всі нулі (думай при цьому про пончики ;-P) 
 та повернути результат у вигляді ітеративного об'єкта. Поглянемо на приклад:
-'''
+"""
+
 
 def duplicate_zeros(donuts: list[int]) -> Iterable[int]:
     i = len(donuts) - 1
@@ -1450,7 +1565,7 @@ assert list(duplicate_zeros([100, 10, 0, 101, 1000])) == [100, 10, 0, 0, 101, 10
 
 print("The mission is done! Click 'Check Solution' to earn rewards!")
 
-'''
+"""
 Медіана – це числове значення, яке ділить відсортований список чисел на більшу і меншу половини. 
 У відсортованому списку з непарним числом елементів медіана – це число в середині списку. 
 Для списку з парним числом елементів, де немає жодного елемента точно посередині, медіана – це середнє значення двох чисел, які знаходяться в середині списку. 
@@ -1458,14 +1573,15 @@ print("The mission is done! Click 'Check Solution' to earn rewards!")
 
 Ідея у тому, щоб відсортувати початковий список і, залежно від його довжини, знайти один або два елементи посередині за їх індексами. 
 Тоді повернути один або середнє з двох значень.
-'''
+"""
+
 
 def checkio(data: list[int]) -> int | float:
     item = sorted(data)
     ind, rem = divmod(len(item), 2)
     print(ind, rem)
     median = item[ind] if rem == 1 else (item[ind - 1] + item[ind]) / 2
-        
+
     return median
 
 
@@ -1473,41 +1589,40 @@ print("Example:")
 print(checkio([1, 2, 3, 4, 5]))
 
 
-'''
+"""
 Дана послідовність рядків. Ти маєш об'єднати ці рядки в блок тексту, розділивши їх комами. 
 В якості жарта над праворукими роботами, ти повинен замінити всі входження слова "right" на слова "left", навіть якщо це частина іншого слова. 
 Всі рядки дані в нижньому регістрі.
-'''
+"""
+
 
 def left_join(phrases: tuple[str]) -> str:
-    new_phrases = ','.join(phrases).lower()
-    return new_phrases.replace('right', 'left')
-
+    new_phrases = ",".join(phrases).lower()
+    return new_phrases.replace("right", "left")
 
 
 print("Example:")
 print(left_join(("left", "right", "left", "stop")))
 
+
 #######LEETCODE 509########
 class Solution:
     def fib(self, n: int) -> int:
 
-
         # if n == 1:
         #     return 1
-        
+
         # if n == 0:
-        #     return 0 
-        
+        #     return 0
+
         # return self.fib(n-1) + self.fib(n-2)
         # COOL :)
-        ans = [0 , 1]
+        ans = [0, 1]
 
-        for i in range(2, n+1):
-            ans.append(ans[i-1] + ans[i-2])
-    
+        for i in range(2, n + 1):
+            ans.append(ans[i - 1] + ans[i - 2])
+
         return ans[n]
-    
 
 
 fib1 = Solution()
@@ -1519,17 +1634,20 @@ print(fib1.fib(100))
 def twoSum(numbers, target):
     left, right = 0, len(numbers) - 1
     while left < right:
-        print(f'is left index = {left}')
-        print(f'is right index = {right}')
-        curr_sum = numbers[left] + numbers[right] # here we add two numbers based on their idexes
+        print(f"is left index = {left}")
+        print(f"is right index = {right}")
+        curr_sum = (
+            numbers[left] + numbers[right]
+        )  # here we add two numbers based on their idexes
         if curr_sum == target:
             return [left + 1, right + 1]
         elif curr_sum < target:
-            left += 1 #we move index here
+            left += 1  # we move index here
         else:
-            right -= 1 # we move index here
+            right -= 1  # we move index here
 
-print(twoSum([1,2,3,4,5,6,7], 100))
+
+print(twoSum([1, 2, 3, 4, 5, 6, 7], 100))
 
 # numbers = [1,2]
 # curr_sum = numbers[0] + numbers[1]
@@ -1539,9 +1657,10 @@ print(twoSum([1,2,3,4,5,6,7], 100))
 # to get the full control of index we need assing this to variable and work with it in case of math operations
 
 
-'''
+"""
 Є якісь данні, як приклад 'AAAAABBbCCCCC' повернтуи массив унікальних значень без повторювань - [A,B,b,C]
-'''
+"""
+
 
 def solution(data) -> list:
     result = []
@@ -1554,5 +1673,6 @@ def solution(data) -> list:
 
     return result
 
-print(solution('AAAAABBbCCCCC'))
-print(solution([1,1,1,2,3,4,5,5,5]))
+
+print(solution("AAAAABBbCCCCC"))
+print(solution([1, 1, 1, 2, 3, 4, 5, 5, 5]))
